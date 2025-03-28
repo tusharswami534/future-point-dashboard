@@ -2,6 +2,7 @@ import React from "react";
 import SideBar from "../common/SideBar";
 import DashBoardData from "./DashBoardData";
 import DashboardHeader from "../common/DashboardHeader";
+import NotificationBar from "./NotificationBar";
 
 const Dashboard = () => {
   return (
@@ -9,7 +10,7 @@ const Dashboard = () => {
       <SideBar />
       <div className="w-full">
         <DashboardHeader />
-        <DashBoardData />
+        <NotificationBar />
       </div>
     </div>
   );

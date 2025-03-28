@@ -13,7 +13,7 @@ const NotificationBar = () => {
 
     return (
         <div className='bg-light-gray'>
-            <div className="container mx-auto max-w-[1535px] sm:p-[30px] py-6 px-4 ">
+            <div className=" sm:p-[30px] py-6 px-4 ">
                 <div className="flex items-center justify-between">
                     <CustomButton customOnClick={() => setNotifications([])} iconOne='deleteIcon' buttonText='Clear All' buttonClass={`${notifications.length === 0 && 'hidden'}`} />
                     <CustomButton buttonClass={`hover:bg-transparent hover:!text-blue ${notifications.length === 0 && 'hidden'}`} buttonText='Today' iconTwo={'dropDownIcon'} />
