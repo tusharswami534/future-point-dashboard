@@ -1,9 +1,11 @@
-import Image from "next/image";
+import DashboardHeader from "@/components/common/DashboardHeader";
+import NotificationBar from "@/components/dashboard/NotificationBar";
 
 export default function Home() {
   return (
-  <>
-  <h1 className=""></h1>
-  </>
+    <>
+      <DashboardHeader />
+      <NotificationBar />
+    </>
   );
 }
