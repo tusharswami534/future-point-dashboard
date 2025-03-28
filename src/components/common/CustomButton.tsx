@@ -13,7 +13,7 @@ interface CustomButtonProps {
 
 const CustomButton = ({ buttonText, buttonClass, iconOne, iconTwo, customOnClick, iconOneClass, buttonTextTwo, buttonClassTwo }: CustomButtonProps) => {
     return (
-        <button onClick={customOnClick} className={`flex items-center gap-2 py-3.5 px-[26px] leading-160 border text-blue border-blue rounded-[47px] cursor-pointer hover:bg-blue hover:text-white transition-all duration-300 group ${buttonClass}`}> <Icons icon={iconOne} iconClass={`group-hover:stroke-white ${iconOneClass}`} /> {buttonText} <span className={`${buttonClassTwo}`}>{buttonTextTwo} </span>  <Icons icon={iconTwo} /> </button>
+        <button onClick={customOnClick} className={`flex items-center gap-2 py-2.5 px-5 md:py-3.5 md:px-[26px] leading-160 border text-blue border-blue rounded-[47px] cursor-pointer hover:bg-blue hover:text-white transition-all duration-300 group ${buttonClass}`}> <Icons icon={iconOne} iconClass={`group-hover:stroke-white ${iconOneClass}`} /> {buttonText} <span className={`${buttonClassTwo}`}>{buttonTextTwo} </span>  <Icons icon={iconTwo} /> </button>
     );
 };
 

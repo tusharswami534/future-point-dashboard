@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 
-*{
+* {
   font-family: "Poppins", sans-serif;
 }
 
-@theme{
+@theme {
   /* Font Family */
   --font-inter: "Inter", sans-serif;
 
@@ -16,9 +16,9 @@
   --text-custom-4xl: 40px;
 
   /* Line Height  */
-  --spacing-100 : 100%;
-  --spacing-130 : 130%;
-  --spacing-160 : 160%;
+  --spacing-100: 100%;
+  --spacing-130: 130%;
+  --spacing-160: 160%;
 
   /* Color */
   --color-blue: #0000F5;
@@ -31,4 +31,6 @@
   --color-sky-blue: #CCCDE2;
   --color-dark-blue: #02066F;
   --color-light-blue: #7D80E01A;
+
+  --shadow-notifications: 0px 8px 19.1px 0px #004B8F0D;
 }
