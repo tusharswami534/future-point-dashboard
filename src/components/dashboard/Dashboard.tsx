@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import SideBar from "../common/SideBar";
 import DashBoardData from "./DashBoardData";
 import DashboardHeader from "../common/DashboardHeader";
-
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
   return (
