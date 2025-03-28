@@ -1,9 +1,9 @@
-import Image from "next/image";
+import SideBar from "@/components/common/SideBar";
 
 export default function Home() {
   return (
-  <>
-  <h1 className=""></h1>
-  </>
+    <>
+      <SideBar />
+    </>
   );
 }

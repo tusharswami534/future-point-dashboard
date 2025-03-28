@@ -30,4 +30,9 @@
   --color-gray: #4F4F4F;
   --color-sky-blue: #CCCDE2;
   --color-dark-blue: #02066F;
+  --color-light-pink: #F9F4FF;
+
+  /* Shadow */
+  --shadow-sidebar: 8px 0px 19.1px 0px #004B8F0D;
 }
+
