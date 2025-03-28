@@ -9,8 +9,8 @@ const DashboardHeader = () => {
   return (
     <div className="bg-light-white z-30 w-full">
       <div className="px-4 md:px-[30px] flex items-center justify-between py-7">
-        <p className="lg:text-4xl md:text-2xl sm:text-xl text-lg font-semibold leading-130 text-dark-black max-sm:tracking-[-1px]">
-          Notification/Announcement
+        <p className="lg:text-4xl md:text-2xl text-xl font-semibold leading-130 text-dark-black max-sm:tracking-[-1px]">
+          Notification<span className="max-sm:hidden">/Announcement</span>
         </p>
         <div className="flex items-center lg:gap-[35px] gap-3 sm:gap-6">
           <Link href={"/"}>
