@@ -29,7 +29,7 @@ const DashBoardData = () => {
       <h4 className="font-semibold text-custom-3xl  leading-130 text-dark-black">
         My Students
       </h4>
-      <div className="w-full flex gap-6 max-lg:flex-wrap">
+      <div className="w-full flex gap-6 flex-wrap">
         {STUDENTS_LIST.map((item, index) => (
           <div
             className="max-w-[496px] hover:shadow-student transition-all duration-300 w-full border border-solid border-light-gray-blue p-5 items-center rounded-2xl flex gap-[30px]"
