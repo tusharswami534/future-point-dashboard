@@ -11,7 +11,7 @@ const SideBar = () => {
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab");
   return (
-    <div className="max-w-[325px] w-full shadow-sidebar min-h-screen bg-white py-4 flex flex-col">
+    <div className="max-w-[325px] max-xl:max-w-[300px] fixed top-0 left-0 w-full shadow-sidebar min-h-screen bg-white py-4 flex flex-col">
       <div className="py-1.5 mb-10 px-6">
         <Link href={"/"}>
           <Image
@@ -30,7 +30,7 @@ const SideBar = () => {
                 `?tab=${item.title.toLowerCase().replaceAll(" ", "-")}`
               )
             }
-            className={`items-center flex gap-3 box-border border border-solid border-transparent hover:border-blue py-3 cursor-pointer leading-160 px-4 rounded-[99px] max-w-[277px] w-full ${
+            className={`items-center flex gap-3 whitespace-nowrap box-border border border-solid border-transparent hover:border-blue py-3 cursor-pointer leading-160 px-4 rounded-[99px] max-w-[277px] w-full ${
               tab === item.title.toLowerCase().replaceAll(" ", "-") &&
               "bg-blue text-light-white"
             }`}
