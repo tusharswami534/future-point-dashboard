@@ -5,11 +5,13 @@ import DashboardHeader from "../common/DashboardHeader";
 
 const Dashboard = () => {
   return (
-    <div className="flex w-full">
+    <div className="flex w-full relative pl-[325px] max-xl:pl-[300px]">
       <SideBar />
-      <div className="w-full">
+      <div className="w-full relative">
         <DashboardHeader />
-        <DashBoardData />
+        <div>
+          <DashBoardData />
+        </div>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import React, { useState } from "react";
 const DashboardHeader = () => {
   const [showProfile, setShowProfile] = useState(false);
   return (
-    <div className="bg-light-white">
+    <div className="bg-light-white z-30">
       <div className="px-4 md:px-[30px] flex items-center justify-between py-7">
         <p className="lg:text-4xl md:text-2xl sm:text-xl text-lg font-semibold leading-130 text-dark-black max-sm:tracking-[-1px]">
           Notification/Announcement
