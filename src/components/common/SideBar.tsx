@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React from "react";
 
-const SideBar = ({ open }: any) => {
+const SideBar = ({ open, close }: any) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab");
@@ -30,12 +30,13 @@ const SideBar = ({ open }: any) => {
       <div className="flex gap-1 px-6 flex-col">
         {DASHBOARD_BUTTON_LIST.map((item, index) => (
           <button
-            onClick={() =>
+            onClick={() => {
               router.push(
                 `?tab=${item.title.toLowerCase().replaceAll(" ", "-")}`
-              )
-            }
-            className={`items-center flex gap-3 whitespace-nowrap box-border border border-solid border-transparent hover:border-blue py-3 cursor-pointer leading-160 px-4 rounded-[99px] max-w-[277px] w-full ${
+              );
+              close();
+            }}
+            className={`items-center flex gap-3 whitespace-nowrap box-border text-dark-gray border border-solid border-transparent hover:border-dark-gray py-3 cursor-pointer leading-160 px-4 rounded-[99px] max-w-[277px] w-full ${
               tab === item.title.toLowerCase().replaceAll(" ", "-") &&
               "bg-blue text-light-white"
             }`}
@@ -45,7 +46,9 @@ const SideBar = ({ open }: any) => {
               <Icons
                 iconClass={
                   tab === item.title.toLowerCase().replaceAll(" ", "-")
-                    ? "fill-light-white"
+                    ? index === 0
+                      ? "stroke-light-white"
+                      : "fill-light-white"
                     : undefined
                 }
                 icon={item.icon}
@@ -58,10 +61,7 @@ const SideBar = ({ open }: any) => {
       <div className="border-b border-solid my-5 border-light-pink"></div>
       <div className="flex flex-col px-6 gap-1">
         <button
-          onClick={() => router.push("?tab=settings")}
-          className={`items-center flex gap-3 box-border border border-solid border-transparent hover:border-blue rounded-[99px] transition-all duration-300 px-4 max-w-[277px] w-full py-3 cursor-pointer ${
-            tab === "settings" && "bg-blue text-light-white"
-          }`}
+          className={`items-center flex gap-3 box-border border border-solid border-transparent hover:border-dark-gray text-dark-gray rounded-[99px] transition-all duration-300 px-4 max-w-[277px] w-full py-3 cursor-pointer`}
         >
           <span className="size-[30px] flex justify-center items-center">
             <Icons

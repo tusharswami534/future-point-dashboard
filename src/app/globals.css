@@ -34,10 +34,11 @@
   --color-light-blue: #7D80E01A;
   --color-light-gray-blue: #CACBE0;
   --color-light-sky-blue: #EFF0F9;
+  --color-light: #E6E6F1;
 
   /* Shadow */
   --shadow-sidebar: 8px 0px 19.1px 0px #004B8F0D;
   --shadow-layer : 8px 8px 48px 8px #00000014;
   --shadow-student : 0px 0px 30.4px 0px #034D9024;;
-  --shadow-notifications: 0px 8px 19.1px 0px #004B8F0D;
+  --shadow-header: 0px 8px 19.1px 0px #004B8F0D;
 }

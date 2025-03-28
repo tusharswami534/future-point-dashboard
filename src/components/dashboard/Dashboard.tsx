@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "../common/SideBar";
 import DashBoardData from "./DashBoardData";
 import DashboardHeader from "../common/DashboardHeader";
@@ -12,11 +12,17 @@ const Dashboard = () => {
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab");
 
+  useEffect(() => {
+    if (tab === "" || window.location.href === "") {
+      window.location.href = "?tab=dashboard";
+    }
+  }, [tab]);
+
   return (
     <div className="flex w-full relative pl-[325px] max-xl:pl-[300px] max-lg:pl-0">
-      <SideBar open={open} />
+      <SideBar open={open} close={() => setOpen(false)} />
       <div className="w-full">
-        <div className="w-full items-center pl-5 relative z-30 bg-light-white flex">
+        <div className="w-full items-center max-lg:pl-5 relative z-30 bg-light-white flex">
           <button
             className="flex flex-col h-[15px] justify-between w-[19px] lg:hidden overflow-hidden relative z-50"
             onClick={() => setOpen(!open)}
