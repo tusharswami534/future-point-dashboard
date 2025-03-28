@@ -124,6 +124,40 @@ const Icons: React.FC<LoginCardProps> = ({
         />
       </svg>
     ),
+    deleteIcon: (
+      <svg
+        width="18"
+        height="20"
+        viewBox="0 0 18 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          className={`transition-all duration-300 ease-linear ${iconClass}`}
+          d="M16 5L15.1327 17.1425C15.0579 18.1891 14.187 19 13.1378 19H4.86224C3.81296 19 2.94208 18.1891 2.86732 17.1425L2 5M7 9V15M11 9V15M12 5V2C12 1.44772 11.5523 1 11 1H7C6.44772 1 6 1.44772 6 2V5M1 5H17"
+          stroke="#0000F5"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+    dropDownIcon: (
+      <svg
+        width="11"
+        height="6"
+        viewBox="0 0 11 6"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M0.322182 0.292894C0.751759 -0.0976305 1.44824 -0.0976306 1.87782 0.292894L5.5 3.58579L9.12218 0.292893C9.55176 -0.0976309 10.2482 -0.0976309 10.6778 0.292893C11.1074 0.683418 11.1074 1.31658 10.6778 1.70711L6.27782 5.70711C5.84824 6.09763 5.15176 6.09763 4.72218 5.70711L0.322182 1.70711C-0.107394 1.31658 -0.107394 0.683418 0.322182 0.292894Z"
+          fill="#0000F5"
+        />
+      </svg>
+    ),
   };
   const addClassName = (
     icon: ReactElement<SVGElement>
@@ -137,5 +171,4 @@ const Icons: React.FC<LoginCardProps> = ({
   );
   return iconsNew[icon] || null;
 };
-
 export default Icons;
