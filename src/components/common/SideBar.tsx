@@ -6,12 +6,17 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React from "react";
 
-const SideBar = () => {
+const SideBar = ({ open }: any) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab");
+
   return (
-    <div className="max-w-[325px] max-xl:max-w-[300px] fixed top-0 left-0 w-full shadow-sidebar min-h-screen bg-white py-4 flex flex-col">
+    <div
+      className={`max-w-[325px] max-xl:max-w-[300px] transition-all duration-300 max-lg:pt-[121px] fixed top-0 left-0 w-full shadow-sidebar min-h-screen bg-white py-4 flex flex-col ${
+        open ? "max-lg:left-0" : "max-lg:-left-full"
+      }`}
+    >
       <div className="py-1.5 mb-10 px-6">
         <Link href={"/"}>
           <Image
