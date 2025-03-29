@@ -48,9 +48,8 @@ const DashboardHeader = ({ close }: any) => {
               alt="user-image"
             />
             <div
-              className={`flex flex-col max-sm:absolute bottom-[-80px] right-0 max-sm:bg-dark-blue max-sm:p-2 max-sm:rounded-lg ${
-                showProfile ? "block" : "max-sm:hidden"
-              }`}
+              className={`flex flex-col max-sm:absolute bottom-[-80px] right-0 max-sm:bg-dark-blue max-sm:p-2 max-sm:rounded-lg ${showProfile ? "block" : "max-sm:hidden"
+                }`}
             >
               <p className="lg:text-lg font-semibold leading-160 whitespace-nowrap max-sm:text-white">
                 Rajpal Singh
