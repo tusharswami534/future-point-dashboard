@@ -46,7 +46,7 @@ const Dashboard = () => {
           </button>
           <DashboardHeader />
         </div>
-        <div className="overflow-y-scroll h-full pb-28">
+        <div className="overflow-y-auto h-full pb-28">
           {tab === "dashboard" && <DashBoardData />}
           {tab === "academic-performance" && <AcademicPerformance />}
           {tab === "fee-status" && <FeeStatus />}
