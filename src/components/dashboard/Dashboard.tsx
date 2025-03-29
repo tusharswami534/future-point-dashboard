@@ -3,26 +3,27 @@ import React, { useEffect, useState } from "react";
 import SideBar from "../common/SideBar";
 import DashBoardData from "./DashBoardData";
 import DashboardHeader from "../common/DashboardHeader";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import NotificationBar from "./NotificationBar";
 import AcademicPerformance from "./AcademicPerformance";
 import FeeStatus from "./FeeStatus";
 const Dashboard = () => {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab");
 
   useEffect(() => {
-    if (tab === "" || window.location.href === "") {
-      window.location.href = "?tab=dashboard";
+    if (!tab) {
+      router.push("?tab=dashboard");
     }
-  }, [tab]);
+  }, [tab, router]);
 
   return (
-    <div className="flex w-full relative pl-[325px] max-xl:pl-[300px] max-lg:pl-0">
+    <div className="flex w-full relative pl-[325px] h-screen overflow-hidden max-xl:pl-[300px] max-lg:pl-0">
       <SideBar open={open} close={() => setOpen(false)} />
       <div className="w-full">
-        <div className="w-full items-center max-lg:pl-5 relative z-30 bg-light-white flex">
+        <div className="w-full max-w-[1536px] items-center max-lg:pl-5 relative z-30 shadow-header !bg-light-white flex">
           <button
             className="flex flex-col h-[15px] justify-between w-[19px] lg:hidden overflow-hidden relative z-50"
             onClick={() => setOpen(!open)}
@@ -45,10 +46,12 @@ const Dashboard = () => {
           </button>
           <DashboardHeader />
         </div>
-        {tab === "dashboard" && <DashBoardData />}
-        {tab === "academic-performance" && <AcademicPerformance />}
-        {tab === "fee-status" && <FeeStatus />}
-        {tab === "notification" && <NotificationBar />}
+        <div className="overflow-y-scroll h-full pb-28">
+          {tab === "dashboard" && <DashBoardData />}
+          {tab === "academic-performance" && <AcademicPerformance />}
+          {tab === "fee-status" && <FeeStatus />}
+          {tab === "notification" && <NotificationBar />}
+        </div>
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ const DashboardHeader = () => {
       (item) => item.title.toLowerCase().replaceAll(" ", "-") === tab
     )?.title || "Notification";
   return (
-    <div className="bg-light-white shadow-header z-30 w-full">
+    <div className="bg-light-white z-30 w-full">
       <div className="px-4 md:px-[30px] flex items-center justify-between py-7">
         <p className="lg:text-4xl md:text-2xl text-xl font-semibold leading-130 text-dark-black max-sm:tracking-[-1px]">
           {title}
