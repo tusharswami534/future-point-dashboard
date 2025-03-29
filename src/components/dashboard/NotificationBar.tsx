@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { NOTIFICATIONS_LIST } from "@/utils/hepler";
 import CustomButton from "../common/CustomButton";
+import { NOTIFICATIONS_LIST } from "@/utils/hepler";
 
 const NotificationBar = () => {
   const [notifications, setNotifications] = useState(NOTIFICATIONS_LIST);
@@ -11,9 +11,55 @@ const NotificationBar = () => {
     setNotifications(clearNotification);
   };
 
+  const filterNotifications = (timeFrames: string[]) => {
+    const today = new Date();
+
+    const filteredNotifications = NOTIFICATIONS_LIST.filter((item) => {
+      const notificationDate = new Date(item.date);
+
+      if (timeFrames.includes("Today")) {
+        if (
+          notificationDate.getDate() === today.getDate() &&
+          notificationDate.getMonth() === today.getMonth() &&
+          notificationDate.getFullYear() === today.getFullYear()
+        ) {
+          return true;
+        }
+      }
+
+      if (timeFrames.includes("1 Day Ago")) {
+        const oneDayAgo = new Date(today);
+        oneDayAgo.setDate(today.getDate() - 1);
+        if (
+          notificationDate.getDate() === oneDayAgo.getDate() &&
+          notificationDate.getMonth() === oneDayAgo.getMonth() &&
+          notificationDate.getFullYear() === oneDayAgo.getFullYear()
+        ) {
+          return true;
+        }
+      }
+
+      if (timeFrames.includes("1 Week Ago")) {
+        const oneWeekAgo = new Date(today);
+        oneWeekAgo.setDate(today.getDate() - 7);
+        if (notificationDate >= oneWeekAgo && notificationDate <= today) {
+          return true;
+        }
+      }
+
+      if (timeFrames.includes("All")) {
+        return true;
+      }
+
+      return false;
+    });
+
+    setNotifications(filteredNotifications);
+  };
+
   return (
     <div className="bg-light-gray">
-      <div className=" sm:p-[30px] py-6 px-4 ">
+      <div className="sm:p-[30px] py-6 px-4">
         <div className="flex items-center justify-between">
           <CustomButton
             customOnClick={() => setNotifications([])}
@@ -21,18 +67,18 @@ const NotificationBar = () => {
             buttonText="Clear All"
             buttonClass={`${notifications.length === 0 && "hidden"}`}
           />
-
-          <CustomButton
-            buttonClass={`hover:bg-transparent hover:!text-blue ${
-              notifications.length === 0 && "hidden"
-            }`}
-            buttonText="Today"
-            iconTwo="dropDownIcon"
-            customOnClick={() => console.log("Button clicked!")}
-          />
+          <select
+            onChange={(event: any) => filterNotifications(event.target.value)}
+            className="py-[13px] pl-[23px] pr-[49px] text-blue bg-[center_right_28px] bg-no-repeat bg-[url('/assets/images/drop-down-icon.webp')] outline-none appearance-none rounded-[47px] border border-blue"
+          >
+            <option>All</option>
+            <option value="Today">Today</option>
+            <option value="1 Day Ago">1 Day Ago</option>
+            <option value="1 Week Ago">1 Week Ago</option>
+          </select>
         </div>
         <div
-          className={`flex flex-col border border-dark-blue/10 rounded-2xl overflow-hidden  mt-[30px] ${
+          className={`flex flex-col border border-dark-blue/10 rounded-2xl overflow-hidden mt-[30px] ${
             notifications.length === 0 && "hidden"
           }`}
         >
@@ -41,10 +87,10 @@ const NotificationBar = () => {
               key={index}
               className={`flex items-center justify-between py-2 sm:py-4 px-3 sm:px-6 gap-3 border-b hover:bg-light-blue transition-all duration-300 border-dark-blue/10 ${
                 index === notifications.length - 1 ? "border-b-0" : ""
-              } `}
+              }`}
             >
               <div>
-                <p className="sm:text-lg  font-semibold leading-160 text-dark-black sm:pb-1">
+                <p className="sm:text-lg font-semibold leading-160 text-dark-black sm:pb-1">
                   {item.title}{" "}
                 </p>
                 <p className="sm:text-sm text-xs leading-160 text-dark-black">
@@ -55,7 +101,7 @@ const NotificationBar = () => {
                 customOnClick={() => handleClearNotification(index)}
                 iconOne="deleteIcon"
                 buttonText="Clear"
-                buttonClass="border-0 text-dark-black max-sm:px-4 "
+                buttonClass="border-0 text-dark-black max-sm:px-4"
                 iconOneClass="stroke-dark-black"
               />
             </div>

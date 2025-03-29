@@ -14,13 +14,41 @@ export const DASHBOARD_BUTTON_LIST = [
 ];
 
 export const NOTIFICATIONS_LIST = [
-  { title: "Today is School Holiday", description: "15th August Celebration" },
-  { title: "Today is School Holiday", description: "15th August Celebration" },
-  { title: "Today is School Holiday", description: "15th August Celebration" },
-  { title: "Today is School Holiday", description: "15th August Celebration" },
-  { title: "Today is School Holiday", description: "15th August Celebration" },
-  { title: "Today is School Holiday", description: "15th August Celebration" },
-  { title: "Today is School Holiday", description: "15th August Celebration" },
+  {
+    title: "Today is School Holiday",
+    description: "28th March Celebration",
+    date: "2025-03-28",
+  },
+  {
+    title: "Today is School Holiday",
+    description: "16th March Celebration",
+    date: "2025-03-16",
+  },
+  {
+    title: "Today is School Holiday",
+    description: "17th March Celebration",
+    date: "2025-03-17",
+  },
+  {
+    title: "Today is School Holiday",
+    description: "18th March Celebration",
+    date: "2025-03-18",
+  },
+  {
+    title: "Today is School Holiday",
+    description: "19th March Celebration",
+    date: "2025-03-19",
+  },
+  {
+    title: "Today is School Holiday",
+    description: "25th March Celebration",
+    date: "2025-03-25",
+  },
+  {
+    title: "Today is School Holiday",
+    description: "29th March Celebration",
+    date: "2025-03-29",
+  },
 ];
 
 export const STUDENTS_LIST = [
