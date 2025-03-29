@@ -5,7 +5,7 @@ import React from "react";
 
 const DashBoardData = () => {
   return (
-    <div className="bg-light-gray flex w-full flex-col gap-[30px] p-[30px]">
+    <div className="bg-light-gray flex w-full flex-col gap-5 md:gap-[30px] py-6 px-4 sm:p-[30px]">
       <div className="sm:min-h-[227px] max-sm:py-8 overflow-hidden shadow-layer md:rounded-2xl rounded-lg bg-cover px-[55px] max-lg:px-5 max-2xl:px-10 items-center justify-between flex bg-center bg-[url('/assets/images/dashboard-image-layer.webp')]">
         <div className="flex flex-col justify-center">
           <p className="md:text-xl leading-100 text-white/80 mb-1.5">September 6, 2023</p>
