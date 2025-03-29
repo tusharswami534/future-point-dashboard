@@ -25,7 +25,7 @@ const Dashboard = () => {
       <div className="w-full">
         <div className="w-full items-center max-lg:pl-5 relative z-30 shadow-header !bg-light-white flex">
           <button
-            className="flex flex-col h-[15px] justify-between w-[19px] lg:hidden overflow-hidden relative z-50"
+            className="flex cursor-pointer   flex-col h-[15px] justify-between w-[19px] lg:hidden overflow-hidden relative z-50"
             onClick={() => setOpen(!open)}
           >
             <span
@@ -44,7 +44,7 @@ const Dashboard = () => {
               }`}
             ></span>
           </button>
-          <DashboardHeader />
+          <DashboardHeader close={() => setOpen(false)} />
         </div>
         <div className="overflow-y-auto h-full pb-28">
           {tab === "dashboard" && <DashBoardData />}
