@@ -28,7 +28,6 @@ const NotificationBar = () => {
             }`}
             buttonText="Today"
             iconTwo="dropDownIcon"
-            iconOne="defaultIcon"
             customOnClick={() => console.log("Button clicked!")}
           />
         </div>
@@ -56,10 +55,8 @@ const NotificationBar = () => {
                 customOnClick={() => handleClearNotification(index)}
                 iconOne="deleteIcon"
                 buttonText="Clear"
-                buttonTextTwo="Clear"
                 buttonClass="border-0 text-dark-black max-sm:px-4 "
                 iconOneClass="stroke-dark-black"
-                buttonClassTwo="max-sm:hidden"
               />
             </div>
           ))}
