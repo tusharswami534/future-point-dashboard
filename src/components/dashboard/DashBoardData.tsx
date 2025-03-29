@@ -31,19 +31,14 @@ const DashBoardData = () => {
       <h4 className="font-semibold text-custom-3xl  leading-130 text-dark-black">
         My Students
       </h4>
-      <div className="w-full flex gap-[23px] flex-wrap">
+      <div className="w-full grid max-sm:grid-cols-1 max-[1884px]:grid-cols-2 grid-cols-3 gap-[23px]">
         {STUDENTS_LIST.map((item, index) => (
           <div
-            className="max-w-[496px] max-sm:w-full box-border max-xl:flex-col max-sm:flex-col max-lg:flex-row max-[921px]:flex-row max-xl:max-w-[unset] max-xl:w-[unset] hover:shadow-student transition-all duration-300 w-full border border-solid border-light-gray-blue p-3 md:p-5 sm:items-center md:rounded-2xl rounded-lg flex gap-[30px]"
+            className="max-[1440px]:flex-col box-border p-3 md:p-5 min-[1440px]:items-center md:rounded-2xl rounded-lg hover:shadow-student transition-all duration-300 w-full border border-solid border-light-gray-blue flex gap-[30px]"
             key={index}
           >
-            <Image
-              src={item.image}
-              width={226}
-              height={218}
-              alt="student-image"
-              className="w-[226px] max-sm:w-full h-[218px] object-cover md:rounded-2xl rounded-lg"
-            />
+            <Image src={item.image} width={226} height={218} alt="student-image"
+              className="min-[1440px]:max-w-[226px] w-full h-[218px] object-cover md:rounded-2xl rounded-lg" />
             <div className="flex flex-col gap-5">
               <div className="flex gap-3">
                 <div className="bg-light-sky-blue flex justify-center items-center rounded-full size-12">
@@ -69,16 +64,14 @@ const DashBoardData = () => {
                 </div>
                 <div className="flex gap-[3px] flex-col">
                   <p className="text-dark-black/70 text-sm">Phone No:</p>
-                  <p className="text-dark-black font-medium">
-                    {" "}
-                    +91 {item.number}
-                  </p>
+                  <p className="text-dark-black font-medium"> +91 {item.number}</p>
                 </div>
               </div>
             </div>
           </div>
         ))}
       </div>
+
     </div>
   );
 };
