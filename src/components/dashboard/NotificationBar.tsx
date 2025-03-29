@@ -67,15 +67,17 @@ const NotificationBar = () => {
             buttonText="Clear All"
             buttonClass={`${notifications.length === 0 && "hidden"}`}
           />
-          <select
-            onChange={(event: any) => filterNotifications(event.target.value)}
-            className="py-[13px] pl-[23px] pr-[49px] text-blue bg-[center_right_28px] bg-no-repeat bg-[url('/assets/images/drop-down-icon.webp')] outline-none appearance-none rounded-[47px] border border-blue"
-          >
-            <option>All</option>
-            <option value="Today">Today</option>
-            <option value="1 Day Ago">1 Day Ago</option>
-            <option value="1 Week Ago">1 Week Ago</option>
-          </select>
+          {notifications.length !== 0 && (
+            <select
+              onChange={(event: any) => filterNotifications(event.target.value)}
+              className="py-[13px] pl-[23px] pr-[49px] text-blue bg-[center_right_28px] bg-no-repeat bg-[url('/assets/images/drop-down-icon.webp')] outline-none appearance-none rounded-[47px] border border-blue"
+            >
+              <option>All</option>
+              <option value="Today">Today</option>
+              <option value="1 Day Ago">1 Day Ago</option>
+              <option value="1 Week Ago">1 Week Ago</option>
+            </select>
+          )}
         </div>
         <div
           className={`flex flex-col border border-dark-blue/10 rounded-2xl overflow-hidden mt-[30px] ${

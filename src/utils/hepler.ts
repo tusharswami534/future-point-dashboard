@@ -57,17 +57,131 @@ export const STUDENTS_LIST = [
     name: "Rohan Duhan",
     class: "2nd",
     number: 8986527831,
+    fatherName: "Rajpal Singh",
+    motherName: "Sujata Kumari",
+    birthDate: "06/07/2009",
+    email: "rohanduhan@gmail.com",
+    adderss: "6th KM Stone, O P Jindal, Hisar - 125005",
+    subject: ["Math", "Computer", "English", "Science", "Hindi", "S.S.T", "Art",],
+    marks: [
+      {
+        subject: 'Maths',
+        marks: 92,
+        grade: 'A+',
+      },
+      {
+        subject: 'Hindi',
+        marks: 87,
+        grade: 'B+'
+      },
+      {
+        subject: 'Hindi Grammar',
+        marks: 55,
+        grade: 'A'
+      },
+      {
+        subject: 'English',
+        marks: 90,
+        grade: 'A+'
+      },
+      {
+        subject: 'English Grammar',
+        marks: 52,
+        grade: 'A+'
+      },
+      {
+        subject: 'Computer',
+        marks: 70,
+        grade: 'B+'
+      },
+    ]
   },
   {
     image: "/assets/images/mohan-duhan.webp",
     name: "Mohan Duhan",
     class: "3rd",
     number: 8986527831,
+    fatherName: "Rajpal Singh",
+    motherName: "Sujata Kumari",
+    birthDate: "06/07/2009",
+    email: "rohanduhan@gmail.com",
+    adderss: "6th KM Stone, O P Jindal, Hisar - 125005",
+    subject: ["Math", "Computer", "English", "Science", "Hindi", "S.S.T", "Art",],
+    marks: [
+      {
+        subject: 'Maths',
+        marks: 92,
+        grade: 'A+',
+      },
+      {
+        subject: 'Hindi',
+        marks: 87,
+        grade: 'B+'
+      },
+      {
+        subject: 'Hindi Grammar',
+        marks: 55,
+        grade: 'A'
+      },
+      {
+        subject: 'English',
+        marks: 90,
+        grade: 'A+'
+      },
+      {
+        subject: 'English Grammar',
+        marks: 52,
+        grade: 'A+'
+      },
+      {
+        subject: 'Computer',
+        marks: 70,
+        grade: 'B+'
+      },
+    ]
   },
   {
     image: "/assets/images/sohan-duhan.webp",
     name: "Sohan Duhan",
     class: "6th",
     number: 8986527831,
+    fatherName: "Rajpal Singh",
+    motherName: "Sujata Kumari",
+    birthDate: "06/07/2009",
+    email: "rohanduhan@gmail.com",
+    adderss: "6th KM Stone, O P Jindal, Hisar - 125005",
+    subject: ["Math", "Computer", "English", "Science", "Hindi", "S.S.T", "Art",],
+    marks: [
+      {
+        subject: 'Maths',
+        marks: 92,
+        grade: 'A+',
+      },
+      {
+        subject: 'Hindi',
+        marks: 87,
+        grade: 'B+'
+      },
+      {
+        subject: 'Hindi Grammar',
+        marks: 55,
+        grade: 'A'
+      },
+      {
+        subject: 'English',
+        marks: 90,
+        grade: 'A+'
+      },
+      {
+        subject: 'English Grammar',
+        marks: 52,
+        grade: 'A+'
+      },
+      {
+        subject: 'Computer',
+        marks: 70,
+        grade: 'B+'
+      },
+    ]
   },
 ];
