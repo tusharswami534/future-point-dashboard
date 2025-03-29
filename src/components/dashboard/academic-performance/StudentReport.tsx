@@ -53,7 +53,7 @@ const StudentReport = () => {
           </tr>
           {markList?.map((item, index) => (
             <tr key={index}>
-              <td className="py-[21px] !text-black pl-6 text-white leading-100 font-semibold">
+              <td className="py-[21px] !text-black pl-6 leading-100 font-semibold">
                 {item.subject}
               </td>
             </tr>

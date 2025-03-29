@@ -209,3 +209,22 @@ export const STUDENTS_LIST = [
     ],
   },
 ];
+
+export const STUDENTS_PERFORMANCE_LIST = [
+  {
+    title: "Total Marks",
+    icon: "marksIcon",
+  },
+  {
+    title: "Attendance",
+    icon: "attendanceIcon",
+  },
+  {
+    title: "Grade",
+    icon: "gradeIcon",
+  },
+  {
+    title: "Percentage ",
+    icon: "percentageIcon",
+  },
+];
