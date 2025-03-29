@@ -1,7 +1,12 @@
 import React from "react";
+import StudentReport from "./academic-performance/StudentReport";
 
 const AcademicPerformance = () => {
-  return <div>AcademicPerformance</div>;
+  return (
+    <>
+      <StudentReport />
+    </>
+  );
 };
 
 export default AcademicPerformance;

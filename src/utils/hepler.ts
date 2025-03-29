@@ -62,39 +62,47 @@ export const STUDENTS_LIST = [
     birthDate: "06/07/2009",
     email: "rohanduhan@gmail.com",
     adderss: "6th KM Stone, O P Jindal, Hisar - 125005",
-    subject: ["Math", "Computer", "English", "Science", "Hindi", "S.S.T", "Art",],
+    subject: [
+      "Math",
+      "Computer",
+      "English",
+      "Science",
+      "Hindi",
+      "S.S.T",
+      "Art",
+    ],
     marks: [
       {
-        subject: 'Maths',
+        subject: "Maths",
         marks: 92,
-        grade: 'A+',
+        grade: "A+",
       },
       {
-        subject: 'Hindi',
+        subject: "Hindi",
         marks: 87,
-        grade: 'B+'
+        grade: "B+",
       },
       {
-        subject: 'Hindi Grammar',
+        subject: "Hindi Grammar",
         marks: 55,
-        grade: 'A'
+        grade: "A",
       },
       {
-        subject: 'English',
+        subject: "English",
         marks: 90,
-        grade: 'A+'
+        grade: "A+",
       },
       {
-        subject: 'English Grammar',
+        subject: "English Grammar",
         marks: 52,
-        grade: 'A+'
+        grade: "A+",
       },
       {
-        subject: 'Computer',
+        subject: "Computer",
         marks: 70,
-        grade: 'B+'
+        grade: "B+",
       },
-    ]
+    ],
   },
   {
     image: "/assets/images/mohan-duhan.webp",
@@ -106,39 +114,47 @@ export const STUDENTS_LIST = [
     birthDate: "06/07/2009",
     email: "rohanduhan@gmail.com",
     adderss: "6th KM Stone, O P Jindal, Hisar - 125005",
-    subject: ["Math", "Computer", "English", "Science", "Hindi", "S.S.T", "Art",],
+    subject: [
+      "Math",
+      "Computer",
+      "English",
+      "Science",
+      "Hindi",
+      "S.S.T",
+      "Art",
+    ],
     marks: [
       {
-        subject: 'Maths',
+        subject: "Maths",
         marks: 92,
-        grade: 'A+',
+        grade: "A+",
       },
       {
-        subject: 'Hindi',
+        subject: "Hindi",
         marks: 87,
-        grade: 'B+'
+        grade: "B+",
       },
       {
-        subject: 'Hindi Grammar',
+        subject: "Hindi Grammar",
         marks: 55,
-        grade: 'A'
+        grade: "A",
       },
       {
-        subject: 'English',
+        subject: "English",
         marks: 90,
-        grade: 'A+'
+        grade: "A+",
       },
       {
-        subject: 'English Grammar',
+        subject: "English Grammar",
         marks: 52,
-        grade: 'A+'
+        grade: "A+",
       },
       {
-        subject: 'Computer',
+        subject: "Computer",
         marks: 70,
-        grade: 'B+'
+        grade: "B+",
       },
-    ]
+    ],
   },
   {
     image: "/assets/images/sohan-duhan.webp",
@@ -150,38 +166,46 @@ export const STUDENTS_LIST = [
     birthDate: "06/07/2009",
     email: "rohanduhan@gmail.com",
     adderss: "6th KM Stone, O P Jindal, Hisar - 125005",
-    subject: ["Math", "Computer", "English", "Science", "Hindi", "S.S.T", "Art",],
+    subject: [
+      "Math",
+      "Computer",
+      "English",
+      "Science",
+      "Hindi",
+      "S.S.T",
+      "Art",
+    ],
     marks: [
       {
-        subject: 'Maths',
+        subject: "Maths",
         marks: 92,
-        grade: 'A+',
+        grade: "A+",
       },
       {
-        subject: 'Hindi',
+        subject: "Hindi",
         marks: 87,
-        grade: 'B+'
+        grade: "B+",
       },
       {
-        subject: 'Hindi Grammar',
+        subject: "Hindi Grammar",
         marks: 55,
-        grade: 'A'
+        grade: "A",
       },
       {
-        subject: 'English',
+        subject: "English",
         marks: 90,
-        grade: 'A+'
+        grade: "A+",
       },
       {
-        subject: 'English Grammar',
+        subject: "English Grammar",
         marks: 52,
-        grade: 'A+'
+        grade: "A+",
       },
       {
-        subject: 'Computer',
+        subject: "Computer",
         marks: 70,
-        grade: 'B+'
+        grade: "B+",
       },
-    ]
+    ],
   },
 ];
