@@ -2,11 +2,11 @@
 import { DASHBOARD_BUTTON_LIST } from "@/utils/hepler";
 import Icons from "@/utils/icons";
 import Image from "next/image";
-import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
 const DashboardHeader = () => {
+  const router = useRouter();
   const [showProfile, setShowProfile] = useState(false);
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab");
@@ -21,20 +21,16 @@ const DashboardHeader = () => {
           {title}
         </p>
         <div className="flex items-center lg:gap-[35px] gap-3 sm:gap-6">
-          <Link href={"?tab=notification"}>
-            <button
-              className={`bg-light cursor-pointer flex items-center justify-center lg:size-[58px] sm:size-12 size-10 rounded-full ${
-                tab === "notification" && "!bg-dark-blue"
+          <button onClick={() => { router.push("?tab=notification") }}
+            className={`bg-light cursor-pointer flex items-center justify-center lg:size-[58px] sm:size-12 size-10 rounded-full ${tab === "notification" && "!bg-dark-blue"
               }`}
-            >
-              <Icons
-                iconClass={`fill-dark-blue ${
-                  tab === "notification" && "fill-white"
+          >
+            <Icons
+              iconClass={`fill-dark-blue ${tab === "notification" && "fill-white"
                 }`}
-                icon="notificationBell"
-              />
-            </button>
-          </Link>
+              icon="notificationBell"
+            />
+          </button>
           <div className="flex items-center justify-center gap-[11px] relative">
             <Image
               onClick={() => setShowProfile(!showProfile)}
@@ -45,9 +41,8 @@ const DashboardHeader = () => {
               alt="user-image"
             />
             <div
-              className={`flex flex-col max-sm:absolute bottom-[-80px] right-0 max-sm:bg-dark-blue max-sm:p-2 max-sm:rounded-lg ${
-                showProfile ? "block" : "max-sm:hidden"
-              }`}
+              className={`flex flex-col max-sm:absolute bottom-[-80px] right-0 max-sm:bg-dark-blue max-sm:p-2 max-sm:rounded-lg ${showProfile ? "block" : "max-sm:hidden"
+                }`}
             >
               <p className="lg:text-lg font-semibold leading-160 whitespace-nowrap max-sm:text-white">
                 Rajpal Singh
