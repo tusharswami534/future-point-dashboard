@@ -37,6 +37,8 @@ body {
   --color-light-sky-blue: #EFF0F9;
   --color-light: #E6E6F1;
   --color-light-blue-two: #CCDBE9;
+  --color-green: #5AAF4C;
+  --color-light-white: #EDEEF7;
 
   /* Shadow */
   --shadow-sidebar: 8px 0px 19.1px 0px #004B8F0D;
