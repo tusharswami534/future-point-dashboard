@@ -72,7 +72,7 @@ const SideBar = ({ open, close }: any) => {
           Settings
         </button>
         <button
-          className={`items-center flex gap-3 box-border border border-solid border-transparent hover:border-red rounded-[99px] transition-all duration-300 px-4 max-w-[277px] w-full py-3 cursor-pointer`}
+          className={`items-center flex text-red gap-3 box-border border border-solid border-transparent hover:border-red rounded-[99px] transition-all duration-300 px-4 max-w-[277px] w-full py-3 cursor-pointer`}
         >
           <span className="size-[30px] flex justify-center items-center">
             <Icons icon="logoutIcon" />
