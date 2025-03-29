@@ -10,7 +10,6 @@ const DashboardHeader = () => {
   const [showProfile, setShowProfile] = useState(false);
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab");
-  console.log(tab);
   const title =
     DASHBOARD_BUTTON_LIST.find(
       (item) => item.title.toLowerCase().replaceAll(" ", "-") === tab
