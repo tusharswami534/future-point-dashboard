@@ -10,15 +10,21 @@ const SideBar = ({ open, close }: any) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab");
-
+  const title =
+    DASHBOARD_BUTTON_LIST.find(
+      (item) => item.title.toLowerCase().replaceAll(" ", "-") === tab
+    )?.title || "Notification";
   return (
     <div
-      className={`max-w-[325px] max-xl:max-w-[300px] transition-all duration-300 max-lg:pt-[121px] fixed top-0 left-0 w-full shadow-sidebar min-h-screen bg-white py-4 flex flex-col ${
+      className={`max-w-[325px] z-20 max-xl:max-w-[300px] transition-all duration-300 max-lg:pt-[121px] fixed top-0 left-0 w-full shadow-sidebar min-h-screen bg-white py-4 flex flex-col ${
         open ? "max-lg:left-0" : "max-lg:-left-full"
       }`}
     >
-      <div className="py-1.5 mb-10 px-6">
-        <Link href={"/"}>
+      <div className="py-1.5  mb-10 max-lg:mb-5 px-6">
+        <p className="xl:text-4xl lg:!text-3xl lg:hidden md:text-2xl text-xl font-semibold leading-130 text-dark-black max-sm:tracking-[-1px]">
+          {title}
+        </p>
+        <Link className="max-lg:hidden" href={"/"}>
           <Image
             src={"/assets/images/logo.webp"}
             width={215}

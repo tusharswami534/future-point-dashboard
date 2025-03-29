@@ -18,9 +18,18 @@ const DashboardHeader = ({ close }: any) => {
   return (
     <div className="bg-light-white z-30 w-full">
       <div className="px-4 md:px-[30px] flex items-center justify-between py-7">
-        <p className="lg:text-4xl md:text-2xl text-xl font-semibold leading-130 text-dark-black max-sm:tracking-[-1px]">
+        <p className="xl:text-4xl lg:!text-3xl max-lg:hidden md:text-2xl text-xl font-semibold leading-130 text-dark-black max-sm:tracking-[-1px]">
           {title}
         </p>
+        <Link className="lg:hidden" href={"/"}>
+          <Image
+            src={"/assets/images/logo.webp"}
+            width={215}
+            height={54.84}
+            alt="logo"
+            className="w-[215px] h-[54.84px] max-lg:w-[150px] max-lg:h-[40px]"
+          />
+        </Link>
         <div className="flex items-center lg:gap-[35px] gap-3 sm:gap-6">
           <button
             onClick={() => {
@@ -48,8 +57,9 @@ const DashboardHeader = ({ close }: any) => {
               alt="user-image"
             />
             <div
-              className={`flex flex-col max-sm:absolute bottom-[-80px] right-0 max-sm:bg-dark-blue max-sm:p-2 max-sm:rounded-lg ${showProfile ? "block" : "max-sm:hidden"
-                }`}
+              className={`flex flex-col max-sm:absolute bottom-[-80px] right-0 max-sm:bg-dark-blue max-sm:p-2 max-sm:rounded-lg ${
+                showProfile ? "block" : "max-sm:hidden"
+              }`}
             >
               <p className="lg:text-lg font-semibold leading-160 whitespace-nowrap max-sm:text-white">
                 Rajpal Singh

@@ -6,7 +6,7 @@ import React from "react";
 const DashBoardData = () => {
   return (
     <div className="bg-light-gray flex w-full flex-col max-md:gap-5 gap-[30px] py-6 px-4 sm:p-[30px]">
-      <div className="sm:min-h-[227px] max-sm:py-8 overflow-hidden shadow-layer md:rounded-2xl rounded-lg bg-cover px-[55px] max-lg:px-5 max-2xl:px-10 items-center justify-between flex bg-center bg-[url('/assets/images/dashboard-image-layer.webp')]">
+      <div className="relative md:min-h-[277px] max-md:py-8 overflow-hidden shadow-layer md:rounded-2xl rounded-lg bg-cover px-[55px] max-lg:px-5 max-2xl:px-10 items-center justify-between flex bg-center bg-[url('/assets/images/dashboard-image-layer.webp')]">
         <div className="flex flex-col justify-center">
           <p className="md:text-xl leading-100 text-white/80 mb-1.5">
             September 6, 2023
@@ -24,17 +24,17 @@ const DashBoardData = () => {
             width={476}
             height={274}
             alt="dashboard-image"
-            className="2xl:-translate-x-24 max-lg:hidden max-2xl:w-[350px] max-2xl:translate-y-[13px] max-xl:translate-y-[50px] max-xl:w-[250px] max-lg:w-[200px]"
+            className="absolute bottom-0 right-0 2xl:right-[130px] max-xl:max-w-[450px] max-[1160px]:!max-w-[350px] max-lg:!max-w-[400px] max-md:hidden pointer-events-none"
           />
         </div>
       </div>
       <h4 className="font-semibold text-custom-3xl  leading-130 text-dark-black">
         My Students
       </h4>
-      <div className="w-full flex gap-[23px] flex-wrap">
+      <div className="w-full grid max-sm:grid-cols-1 max-[1884px]:grid-cols-2 grid-cols-3 gap-[23px]">
         {STUDENTS_LIST.map((item, index) => (
           <div
-            className="max-w-[496px] max-sm:w-full box-border max-xl:flex-col max-sm:flex-col max-lg:flex-row max-[921px]:flex-row max-xl:max-w-[unset] max-xl:w-[unset] hover:shadow-student transition-all duration-300 w-full border border-solid border-light-gray-blue p-3 md:p-5 sm:items-center md:rounded-2xl rounded-lg flex gap-[30px]"
+            className="max-[1440px]:flex-col box-border p-3 md:p-5 min-[1440px]:items-center md:rounded-2xl rounded-lg hover:shadow-student transition-all duration-300 w-full border border-solid border-light-gray-blue flex gap-[30px]"
             key={index}
           >
             <Image
@@ -42,7 +42,7 @@ const DashBoardData = () => {
               width={226}
               height={218}
               alt="student-image"
-              className="w-[226px] max-sm:w-full h-[218px] object-cover md:rounded-2xl rounded-lg"
+              className="min-[1440px]:max-w-[226px] w-full h-[218px] object-cover md:rounded-2xl rounded-lg"
             />
             <div className="flex flex-col gap-5">
               <div className="flex gap-3">

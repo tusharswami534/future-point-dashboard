@@ -100,9 +100,10 @@ const NotificationBar = () => {
               <CustomButton
                 customOnClick={() => handleClearNotification(index)}
                 iconOne="deleteIcon"
-                buttonText="Clear"
-                buttonClass="border-0 text-dark-black max-sm:px-4"
+                buttonTextTwo="Clear"
+                buttonClass="border-0 text-dark-black max-sm:px-[11px] "
                 iconOneClass="stroke-dark-black"
+                buttonClassTwo="max-sm:hidden"
               />
             </div>
           ))}
