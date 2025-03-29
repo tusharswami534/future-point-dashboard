@@ -23,7 +23,7 @@ const Dashboard = () => {
     <div className="flex w-full relative pl-[325px] h-screen overflow-hidden max-xl:pl-[300px] max-lg:pl-0">
       <SideBar open={open} close={() => setOpen(false)} />
       <div className="w-full">
-        <div className="w-full max-w-[1536px] items-center max-lg:pl-5 relative z-30 shadow-header !bg-light-white flex">
+        <div className="w-full items-center max-lg:pl-5 relative z-30 shadow-header !bg-light-white flex">
           <button
             className="flex flex-col h-[15px] justify-between w-[19px] lg:hidden overflow-hidden relative z-50"
             onClick={() => setOpen(!open)}
