@@ -3,10 +3,11 @@ import { DASHBOARD_BUTTON_LIST } from "@/utils/hepler";
 import Icons from "@/utils/icons";
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
-const DashboardHeader = () => {
+const DashboardHeader = ({ close }: any) => {
+  const router = useRouter();
   const [showProfile, setShowProfile] = useState(false);
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab");
@@ -21,20 +22,22 @@ const DashboardHeader = () => {
           {title}
         </p>
         <div className="flex items-center lg:gap-[35px] gap-3 sm:gap-6">
-          <Link href={"?tab=notification"}>
-            <button
-              className={`bg-light cursor-pointer flex items-center justify-center lg:size-[58px] sm:size-12 size-10 rounded-full ${
-                tab === "notification" && "!bg-dark-blue"
+          <button
+            onClick={() => {
+              router.push("?tab=notification");
+              close();
+            }}
+            className={`bg-light cursor-pointer flex items-center justify-center lg:size-[58px] sm:size-12 size-10 rounded-full ${
+              tab === "notification" && "!bg-dark-blue"
+            }`}
+          >
+            <Icons
+              iconClass={`fill-dark-blue ${
+                tab === "notification" && "fill-white"
               }`}
-            >
-              <Icons
-                iconClass={`fill-dark-blue ${
-                  tab === "notification" && "fill-white"
-                }`}
-                icon="notificationBell"
-              />
-            </button>
-          </Link>
+              icon="notificationBell"
+            />
+          </button>
           <div className="flex items-center justify-center gap-[11px] relative">
             <Image
               onClick={() => setShowProfile(!showProfile)}

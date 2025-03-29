@@ -44,7 +44,7 @@ const Dashboard = () => {
               }`}
             ></span>
           </button>
-          <DashboardHeader />
+          <DashboardHeader close={() => setOpen(false)} />
         </div>
         <div className="overflow-y-auto h-full pb-28">
           {tab === "dashboard" && <DashBoardData />}
