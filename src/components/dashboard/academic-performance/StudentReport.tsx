@@ -34,30 +34,32 @@ const StudentReport = () => {
           </select>
         </div>
         <table>
-          <tr className="bg-dark-blue">
-            <th className="py-[21px] text-white leading-100 font-semibold">
-              Exam
-            </th>
-            <th className="py-[21px] text-white leading-100 font-semibold">
-              Total Marks
-            </th>
-            <th className="py-[21px] text-white leading-100 font-semibold">
-              Marks
-            </th>
-            <th className="py-[21px] text-white leading-100 font-semibold">
-              Status
-            </th>
-            <th className="py-[21px] text-white leading-100 font-semibold">
-              Grade
-            </th>
-          </tr>
-          {markList?.map((item, index) => (
-            <tr key={index}>
-              <td className="py-[21px] !text-black pl-6 leading-100 font-semibold">
-                {item.subject}
-              </td>
+          <tbody>
+            <tr className="bg-dark-blue">
+              <th className="py-[21px] text-white leading-100 font-semibold">
+                Exam
+              </th>
+              <th className="py-[21px] text-white leading-100 font-semibold">
+                Total Marks
+              </th>
+              <th className="py-[21px] text-white leading-100 font-semibold">
+                Marks
+              </th>
+              <th className="py-[21px] text-white leading-100 font-semibold">
+                Status
+              </th>
+              <th className="py-[21px] text-white leading-100 font-semibold">
+                Grade
+              </th>
             </tr>
-          ))}
+            {markList?.map((item, index) => (
+              <tr key={index}>
+                <td className="py-[21px] !text-black pl-6 leading-100 font-semibold">
+                  {item.subject}
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
       <div className="w-full"></div>
