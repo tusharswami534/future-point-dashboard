@@ -1,36 +1,53 @@
-import React from "react";
-import Chart from "react-apexcharts";
+"use client";
+import React, { useState } from "react";
+import dynamic from "next/dynamic";
+import { ApexOptions } from "apexcharts";
+const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+  ssr: false,
+});
 
 const AttendanceData = () => {
-  const options = {
-    chart: {
-      type: "donut",
-      width: 317,
-    },
-    labels: ["Late", "Absent", "present"],
-    legend: {
-      position: "left",
-    },
-    responsive: [
-      {
-        breakpoint: 480,
-        options: {
-          chart: {
-            width: 200,
-          },
-          legend: {
-            position: "bottom",
+  const [state, setState] = useState<{
+    series: number[];
+    options: ApexOptions;
+  }>({
+    series: [20, 65, 180],
+    options: {
+      chart: {
+        width: 317,
+        type: "donut",
+      },
+      legend: {
+        show: false,
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200,
+            },
           },
         },
-      },
-    ],
-  };
-
-  const series = [9, 24, 67];
+      ],
+    },
+  });
 
   return (
     <div>
-      <Chart options={options} series={series} type="donut" />
+      <div className="chart-wrap">
+        <div id="chart">
+          <ReactApexChart
+            options={state.options}
+            series={state.series}
+            type="donut"
+            width={400}
+          />
+        </div>
+      </div>
     </div>
   );
 };
