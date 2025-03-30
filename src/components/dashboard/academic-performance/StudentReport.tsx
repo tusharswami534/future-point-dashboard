@@ -23,7 +23,7 @@ const StudentReport = () => {
   const markList = studentList && studentList.marks;
 
   return (
-    <div className="grid grid-cols-2 max-2xl:grid-cols-1">
+    <div className="grid grid-cols-2 gap-[30px] max-2xl:grid-cols-1">
       <div className="flex border border-solid border-light-blue-two rounded-2xl flex-col">
         <div className="flex w-full items-center py-6 px-5 justify-between">
           <p className="text-2xl max-sm:hidden max-xl:text-text-xl max-lg:text-lg">
@@ -63,7 +63,7 @@ const StudentReport = () => {
                   }`}
                   key={index}
                 >
-                  <td className="py-[21px] !text-dark-black pl-6 leading-100 font-semibold">
+                  <td className="py-[23px] leading-160 !text-dark-black pl-6 font-semibold">
                     {item.subject}
                   </td>
                   <td className="pl-6 text-gray">
