@@ -22,7 +22,7 @@ const StudentData = ({ totalNumber }: { totalNumber: string }) => {
 
   return (
     <div className="w-full py-6 md:py-[30px]">
-      <div className="pb-[30px] grid sm:grid-cols-2 xl:grid-cols-3 min-[1439px]:!grid-cols-4 gap-4 md:gap-[30px]">
+      <div className="pb-[30px] grid sm:grid-cols-2 xl:grid-cols-3 min-[1439px]:!grid-cols-4 gap-4 lg:gap-[30px]">
         {STUDENTS_PERFORMANCE_LIST.map((item, index) => (
           <div
             key={index}

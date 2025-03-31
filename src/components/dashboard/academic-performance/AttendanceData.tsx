@@ -25,6 +25,17 @@ const AttendanceData = () => {
       dataLabels: {
         enabled: false,
       },
+      colors: ["#148E00", "#02066F", "#0000F5"],
+      stroke: {
+        width: 0,
+      },
+      plotOptions: {
+        pie: {
+          donut: {
+            size: "80%",
+          },
+        },
+      },
       responsive: [
         {
           breakpoint: 1200,
@@ -34,6 +45,7 @@ const AttendanceData = () => {
             },
           },
         },
+
         {
           breakpoint: 480,
           options: {
@@ -81,7 +93,7 @@ const AttendanceData = () => {
           <span className="py-[9.52px] rounded-[73px] flex gap-1 text-dark-blue top-[74%] right-[-31%] px-[14.5px] absolute max-[1200px]:hidden border items-center border-solid border-dark-blue bg-dark-blue/10">
             Total Leave <span className="text-2xl font-semibold">65</span>
           </span>
-          <span className="absolute text-center flex text-dark-black justify-center items-center flex-col size-[193px] top-1/2 left-1/2 -translate-x-1/2 bg-dark-blue/10 rounded-full -translate-y-1/2">
+          <span className="absolute max-[1200px]:bg-transparent max-[1200px]:left-[36%] max-[480px]:left-[51%] text-center flex text-dark-black justify-center items-center flex-col size-[193px] top-1/2 left-1/2 -translate-x-1/2 bg-dark-blue/10 rounded-full -translate-y-1/2">
             Total Attendance{" "}
             <span className="block text-2xl font-semibold">265</span>
           </span>

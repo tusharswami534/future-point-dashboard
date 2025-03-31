@@ -32,8 +32,6 @@ const StudentReport = () => {
     }
   };
 
- 
-
   return (
     <div className="grid grid-cols-2 gap-[30px] max-[1870px]:grid-cols-1">
       <div className="flex border border-solid border-light-blue-two rounded-2xl flex-col">
@@ -49,7 +47,7 @@ const StudentReport = () => {
             <option value="2nd">2nd Term Exam Result </option>
           </select>
         </div>
-        <div className="w-full overflow-x-auto">
+        <div className="w-full overflow-hidden max-[1870px]:overflow-x-auto">
           <table className="min-w-[753px] w-full">
             <tbody>
               <tr className="bg-dark-blue">
