@@ -596,7 +596,7 @@ const Icons: React.FC<LoginCardProps> = ({
         />
       </svg>
     ),
-    themIcon: (
+    themeIcon: (
       <svg
         width="17"
         height="17"

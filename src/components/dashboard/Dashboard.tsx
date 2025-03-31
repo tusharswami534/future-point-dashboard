@@ -52,14 +52,16 @@ const Dashboard = () => {
             ></span>
           </button>
           <DashboardHeader
-            darkThem={dark}
-            setDarkThem={setDark}
+            darkTheme={dark}
+            setDarkTheme={setDark}
             close={() => setOpen(false)}
           />
         </div>
         <div className="overflow-y-auto h-full pb-28">
           {tab === "dashboard" && <DashBoardData />}
-          {tab === "academic-performance" && <AcademicPerformance />}
+          {tab === "academic-performance" && (
+            <AcademicPerformance darkTheme={dark} />
+          )}
           {tab === "fee-status" && <FeeStatus />}
           {tab === "notification" && <NotificationBar />}
         </div>

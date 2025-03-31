@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
-const DashboardHeader = ({ close, darkThem, setDarkThem }: any) => {
+const DashboardHeader = ({ close, darkTheme, setDarkTheme }: any) => {
   const router = useRouter();
   const [showProfile, setShowProfile] = useState(false);
   const searchParams = useSearchParams();
@@ -32,14 +32,14 @@ const DashboardHeader = ({ close, darkThem, setDarkThem }: any) => {
         </Link>
         <div className="flex items-center lg:gap-[35px] gap-3 sm:gap-6">
           <button
-            onClick={() => setDarkThem(!darkThem)}
+            onClick={() => setDarkTheme(!darkTheme)}
             className={`p-3 border border-solid cursor-pointer rounded-full font-semibold text-xl leading-160 ${
-              darkThem
+              darkTheme
                 ? "text-white border-white bg-dark-blue"
                 : "border-dark-blue"
             }`}
           >
-            <Icons icon="themIcon" iconClass={darkThem && "fill-white"} />
+            <Icons icon="themeIcon" iconClass={darkTheme && "fill-white"} />
           </button>
           <button
             onClick={() => {
