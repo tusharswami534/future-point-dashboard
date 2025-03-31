@@ -9,7 +9,7 @@ export const DASHBOARD_BUTTON_LIST = [
   },
   {
     title: "Fee status",
-    icon: "feeStatusIcon",
+    icon: "feeStatusIcon", 
   },
 ];
 
