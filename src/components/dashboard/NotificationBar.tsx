@@ -4,7 +4,7 @@ import CustomButton from "../common/CustomButton";
 import { NOTIFICATIONS_LIST } from "@/utils/hepler";
 import { useParams, useRouter } from "next/navigation";
 
-const NotificationBar = () => {
+const NotificationBar = ({ darkTheme }: { darkTheme: any }) => {
   const router = useRouter();
   const [notifications, setNotifications] = useState(NOTIFICATIONS_LIST);
 
@@ -59,20 +59,19 @@ const NotificationBar = () => {
     setNotifications(filteredNotifications);
   };
   return (
-    <div className="bg-light-gray">
+    <div className={`${darkTheme && "!bg-dark-black"} bg-light-gray`}>
       <div className="sm:p-[30px] py-6 px-4">
         <div className="flex items-center justify-between">
           <CustomButton
             customOnClick={() => setNotifications([])}
             iconOne="deleteIcon"
             buttonText="Clear All"
-            buttonClass={`${notifications.length === 0 && "hidden"}`}
+            buttonClass={` ${darkTheme && "bg-light-white border-light-white hover:border-transparent"} ${notifications.length === 0 && "hidden"}`}
           />
           {notifications.length !== 0 && (
             <select
               onChange={(event: any) => filterNotifications(event.target.value)}
-              className="py-[13px] pl-[23px] pr-[49px] text-blue bg-[center_right_28px] bg-no-repeat bg-[url('/assets/images/drop-down-icon.webp')] outline-none appearance-none rounded-[47px] border border-blue"
-            >
+              className={`py-[13px] pl-[23px] pr-[49px] text-blue cursor-pointer bg-[center_right_28px] bg-no-repeat bg-[url('/assets/images/drop-down-icon.webp')] outline-none appearance-none rounded-[47px] border border-blue ${darkTheme && "bg-light-white border-transparent"}`}>
               <option>All</option>
               <option value="Today">Today</option>
               <option value="1 Day Ago">1 Day Ago</option>
@@ -81,22 +80,20 @@ const NotificationBar = () => {
           )}
         </div>
         <div
-          className={`flex flex-col border border-dark-blue/10 rounded-2xl overflow-hidden mt-[30px] ${
-            notifications.length === 0 && "hidden"
-          }`}
+          className={`flex flex-col border border-dark-blue/10 rounded-2xl overflow-hidden mt-[30px] ${darkTheme && "border-light-gray"} ${notifications.length === 0 && "hidden"
+            }`}
         >
           {notifications.map((item, index) => (
             <div
               key={index}
-              className={`flex items-center justify-between py-2 sm:py-4 px-3 sm:px-6 gap-3 border-b hover:bg-light-blue transition-all duration-300 border-dark-blue/10 ${
-                index === notifications.length - 1 ? "border-b-0" : ""
-              }`}
+              className={`flex items-center justify-between py-2 sm:py-4 px-3 sm:px-6 gap-3 ${darkTheme && "border-light-gray hover:bg-light-gray/50"} border-b hover:bg-light-blue transition-all duration-300 border-dark-blue/10 ${index === notifications.length - 1 ? "border-b-0" : ""
+                }`}
             >
               <div>
-                <p className="sm:text-lg font-semibold leading-160 text-dark-black sm:pb-1">
+                <p className={`sm:text-lg font-semibold leading-160 text-dark-black sm:pb-1 ${darkTheme && "text-light-white"}`}>
                   {item.title}{" "}
                 </p>
-                <p className="sm:text-sm text-xs leading-160 text-dark-black">
+                <p className={`sm:text-sm text-xs leading-160 text-dark-black ${darkTheme && "text-light-white"}`}>
                   {item.description}
                 </p>
               </div>
@@ -105,8 +102,8 @@ const NotificationBar = () => {
                 iconOne="deleteIcon"
                 buttonTextTwo="Clear"
                 buttonClass="border-0 text-dark-black max-sm:px-[11px] "
-                iconOneClass="stroke-dark-black"
-                buttonClassTwo="max-sm:hidden"
+                iconOneClass={`stroke-dark-black ${darkTheme && "stroke-light-white"}`}
+                buttonClassTwo={`max-sm:hidden ${darkTheme && "text-light-white"}`}
               />
             </div>
           ))}

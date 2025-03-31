@@ -4,7 +4,8 @@ import Icons from "@/utils/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { domainToUnicode } from "url";
 
 const DashboardHeader = ({ close, darkTheme, setDarkTheme }: any) => {
   const router = useRouter();
@@ -14,11 +15,18 @@ const DashboardHeader = ({ close, darkTheme, setDarkTheme }: any) => {
   const title =
     DASHBOARD_BUTTON_LIST.find(
       (item) => item.title.toLowerCase().replaceAll(" ", "-") === tab
-    )?.title || "Notification";
+    )?.title || "Notification"
+    useEffect(() => {
+      if (darkTheme) {
+        document.body.classList.add("!bg-dark-black");
+      } else {
+        document.body.classList.remove("!bg-dark-black");
+      }
+    })
   return (
-    <div className="bg-light-white text-black z-30 w-full">
+    <div className={`bg-light-white text-black z-30 w-full ${darkTheme && "!bg-dark-blue"}`}>
       <div className="px-4 md:px-[30px] flex items-center justify-between py-7">
-        <p className="xl:text-4xl lg:!text-3xl max-lg:hidden md:text-2xl text-xl font-semibold leading-130 text-dark-black max-sm:tracking-[-1px]">
+        <p className={`xl:text-4xl lg:!text-3xl max-lg:hidden md:text-2xl text-xl font-semibold leading-130 text-dark-black max-sm:tracking-[-1px] ${darkTheme && "text-light-white"}`}>
           {title}
         </p>
         <Link className="lg:hidden" href={"/"}>
@@ -46,7 +54,7 @@ const DashboardHeader = ({ close, darkTheme, setDarkTheme }: any) => {
               router.push("/dashboard?tab=notification");
               close();
             }}
-            className={`bg-light cursor-pointer flex items-center justify-center lg:size-[58px] sm:size-12 size-10 rounded-full ${
+            className={`bg-light cursor-pointer flex items-center justify-center lg:size-[58px] sm:size-12 size-10 rounded-full ${darkTheme && "!bg-blue"} ${
               tab === "notification" && "!bg-dark-blue"
             }`}
           >
@@ -71,10 +79,10 @@ const DashboardHeader = ({ close, darkTheme, setDarkTheme }: any) => {
                 showProfile ? "block" : "max-sm:hidden"
               }`}
             >
-              <p className="lg:text-lg font-semibold leading-160 whitespace-nowrap max-sm:text-white">
+              <p className={`lg:text-lg font-semibold leading-160 whitespace-nowrap max-sm:text-white ${darkTheme && "text-light-white"}`}>
                 Rajpal Singh
               </p>
-              <p className="text-sm leading-160 text-dark-blue max-sm:text-white">
+              <p className={`text-sm leading-160 text-dark-blue max-sm:text-white ${darkTheme && "text-light-white"}`}>
                 Parent
               </p>
             </div>
