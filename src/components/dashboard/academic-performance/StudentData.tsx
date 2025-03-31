@@ -19,7 +19,7 @@ const StudentData = () => {
     console.log(studentList, "studentList");
 
     return (
-        <div className="w-full p-[30px]">
+        <div className="w-full px-4 py-6 md:p-[30px]">
             <div className="pb-[30px] grid sm:grid-cols-2 xl:grid-cols-3 min-[1439px]:!grid-cols-4 gap-[30px]">
                 {STUDENTS_PERFORMANCE_LIST.map((item, index) => (
                     <div key={index} className="flex items-center justify-between transition-all duration-300 hover:shadow-button p-[18px] border rounded-xl border-light-sky-blue ">
@@ -32,11 +32,11 @@ const StudentData = () => {
                 ))}
             </div>
             {studentList && (
-                <div className="grid grid-cols-3 border-light-sky-blue border rounded-2xl p-[30px] items-center">
-                    <div className="col-span-1">
+                <div className="grid max-[1439px]:grid-cols-2  grid-cols-3 border-light-sky-blue border rounded-2xl px-2 py-6 md:p-[30px] items-center">
+                    <div className="col-span-2 md:col-span-1">
                         <Image className='' src={studentList.image} width={483} height={498} alt={studentList.name} />
                     </div>
-                    <div className="col-span-2 flex flex-col w-full pl-[30px] ">
+                    <div className="col-span-2 flex flex-col w-full min-[1439px]::pl-[30px] max-[1439px]:pt-[30px]">
                         <div className="flex gap-3">
                             <p className='text-dark-black text-custom-3xl font-semibold leading-150 '>{studentList.name}</p>
                             <div className="border border-dark-blue rounded-full flex items-center justify-center w-[107px] h-[38px]">
@@ -44,7 +44,7 @@ const StudentData = () => {
                             </div>
                         </div>
                         <div className="pt-[30px] w-full">
-                            <div className="grid grid-cols-2 2xl:grid-cols-3 gap-y-12">
+                            <div className="grid md:grid-cols-2 2xl:grid-cols-3 gap-y-12">
                                 <div className="flex gap-[18px] items-center ">
                                     <div className="size-[70px] 2xl:size-[86px] bg-light-sky-blue rounded-full flex items-center justify-center">
                                         <Icons icon='fatherIcon' />
@@ -102,7 +102,7 @@ const StudentData = () => {
                             </div>
                             <div className="pt-10">
                                 <p className='text-xl font-medium leading-160 text-dark-black '>Subjects:</p>
-                                <div className="flex gap-3">
+                                <div className="flex gap-3 flex-wrap">
                                     {studentList.subject.map((item: any, index: number) => (
                                         <div key={index} className="border border-dark-blue bg-dark-blue/10 rounded-full flex items-center justify-center w-[107px] h-[38px]">
                                             <p className='text-dark-blue/70 leading-160 '>{item}</p>
