@@ -1,11 +1,20 @@
 import { STUDENTS_LIST } from "@/utils/hepler";
 import Icons from "@/utils/icons";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import React from "react";
+import { useParams, useRouter } from "next/navigation";
+import React, { useEffect } from "react";
 
 const DashBoardData = () => {
   const router = useRouter();
+  const params = useParams();
+  const { student } = params;
+
+  useEffect(() => {
+    if (student) {
+      router.push("/");
+    }
+  }, [student, router]);
+
   return (
     <div className="bg-light-gray flex w-full flex-col max-md:gap-5 gap-[30px] py-6 px-4 sm:p-[30px]">
       <div className="relative md:min-h-[277px] max-md:py-8 overflow-hidden shadow-layer md:rounded-2xl rounded-lg bg-cover px-[55px] max-lg:px-5 max-2xl:px-10 items-center justify-between flex bg-center bg-[url('/assets/images/dashboard-image-layer.webp')]">
@@ -43,7 +52,7 @@ const DashBoardData = () => {
                   .replaceAll(" ", "-")}?tab=academic-performance`
               )
             }
-            className="max-[1440px]:flex-col box-border p-3 md:p-5 min-[1440px]:items-center md:rounded-2xl rounded-lg hover:shadow-student transition-all duration-300 w-full border border-solid border-light-gray-blue flex gap-[30px]"
+            className="max-[1440px]:flex-col cursor-pointer box-border p-3 md:p-5 min-[1440px]:items-center md:rounded-2xl rounded-lg hover:shadow-student transition-all duration-300 w-full border border-solid border-light-gray-blue flex gap-[30px]"
             key={index}
           >
             <Image

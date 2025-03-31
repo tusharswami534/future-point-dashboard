@@ -2,11 +2,11 @@ import React from "react";
 
 const TeacherFeedBack = () => {
   return (
-    <div className="p-6 border border-solid bg-light-white border-dark-blue/20 rounded-2xl max-w-[1186px]">
-      <p className="font-semibold text-2xl text-dark-black leading-130">
+    <div className="p-6 max-lg:p-5 max-md:p-4 border border-solid bg-light-white border-dark-blue/20 rounded-2xl max-w-[1186px]">
+      <p className="font-semibold text-2xl max-lg:text-xl max-md:text-lg pb-4 max-lg:pb-3 max-md:pb-2 text-dark-black leading-130">
         Teacher Feedback:
       </p>
-      <p className="leading-160">
+      <p className="leading-160 pb-4 max-lg:pb-3 max-md:pb-2 max-sm:text-sm">
         Teachers have consistently praised your child for their exceptional
         effort and active participation in class. Their enthusiasm and
         dedication are evident in their approach to learning and their

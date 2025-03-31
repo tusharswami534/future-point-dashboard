@@ -506,6 +506,7 @@ const Icons: React.FC<LoginCardProps> = ({
     ),
     fatherIcon: (
       <svg
+        className={iconClass}
         width="55"
         height="56"
         viewBox="0 0 55 56"
