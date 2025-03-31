@@ -44,10 +44,10 @@ const StudentData = () => {
                             </div>
                         </div>
                         <div className="pt-[30px] w-full">
-                            <div className="grid max-md:grid-cols-1 max-[1890px]:grid-cols-2 grid-cols-3 gap-y-4 md:gap-y-12">
+                            <div className="grid max-sm:grid-cols-1 max-[1890px]:grid-cols-2 grid-cols-3 gap-y-4 md:gap-y-12">
                                 <div className="flex gap-[18px] items-center ">
                                     <div className="size-[60px] 2xl:size-[86px] bg-light-sky-blue rounded-full flex items-center justify-center">
-                                        <Icons icon='fatherIcon' className="max-lg:w-[40px]" />
+                                        <Icons icon='fatherIcon' className="max-2xl:w-[40px]" />
                                     </div>
                                     <div className="flex flex-col">
                                         <p className='text-sm leading-160 text-dark-black/70 '>Father Name:</p>
@@ -56,7 +56,7 @@ const StudentData = () => {
                                 </div>
                                 <div className="flex gap-[18px] items-center ">
                                     <div className="size-[60px] 2xl:size-[86px] bg-light-sky-blue rounded-full flex items-center justify-center">
-                                        <Icons icon='motherIcon' className="max-lg:w-[30px]" />
+                                        <Icons icon='motherIcon' className="max-2xl:w-[30px]" />
                                     </div>
                                     <div className="flex flex-col">
                                         <p className='text-sm leading-160 text-dark-black/70 '>Mother Name:</p>
@@ -65,7 +65,7 @@ const StudentData = () => {
                                 </div>
                                 <div className="flex gap-[18px] items-center ">
                                     <div className="size-[60px] 2xl:size-[86px] bg-light-sky-blue rounded-full flex items-center justify-center">
-                                        <Icons icon='birthIcon' className="max-lg:w-[30px]" />
+                                        <Icons icon='birthIcon' className="max-2xl:w-[30px]" />
                                     </div>
                                     <div className="flex flex-col">
                                         <p className='text-sm leading-160 text-dark-black/70 '>Date of Birth:</p>
@@ -74,7 +74,7 @@ const StudentData = () => {
                                 </div>
                                 <div className="flex gap-[18px] items-center ">
                                     <div className="size-[60px] 2xl:size-[86px] bg-light-sky-blue rounded-full flex items-center justify-center">
-                                        <Icons icon='bigMobileIcon' className="max-lg:w-[30px]" />
+                                        <Icons icon='bigMobileIcon' className="max-2xl:w-[30px]" />
                                     </div>
                                     <div className="flex flex-col">
                                         <p className='text-sm leading-160 text-dark-black/70 '>Phone No:</p>
@@ -83,7 +83,7 @@ const StudentData = () => {
                                 </div>
                                 <div className="flex gap-[18px] items-center ">
                                     <div className="size-[60px] 2xl:size-[86px]  bg-light-sky-blue rounded-full flex items-center justify-center">
-                                        <Icons icon='mailIcon' className="max-lg:w-[30px]" />
+                                        <Icons icon='mailIcon' className="max-2xl:w-[30px]" />
                                     </div>
                                     <div className="flex flex-col">
                                         <p className='text-sm leading-160 text-dark-black/70 '>Email:</p>
@@ -92,7 +92,7 @@ const StudentData = () => {
                                 </div>
                                 <div className="flex gap-[18px] items-center ">
                                     <div className="size-[60px] 2xl:size-[86px] bg-light-sky-blue rounded-full flex items-center justify-center">
-                                        <Icons icon='addressIcon' className="max-lg:w-[30px]" />
+                                        <Icons icon='addressIcon' className="max-2xl:w-[30px]" />
                                     </div>
                                     <div className="flex flex-col">
                                         <p className='text-sm leading-160 text-dark-black/70 '>Address:</p>
