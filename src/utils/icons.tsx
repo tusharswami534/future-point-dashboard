@@ -253,7 +253,7 @@ const Icons: React.FC<LoginCardProps> = ({
     ),
     marksIcon: (
       <svg
-        className="max-2xl:!w-6 max-2xl:!h-6"
+      className={`${className} `}
         width="46"
         height="29"
         viewBox="0 0 46 29"
@@ -304,6 +304,7 @@ const Icons: React.FC<LoginCardProps> = ({
     ),
     attendanceIcon: (
       <svg
+      className={`${className} `}
         width="41"
         height="41"
         viewBox="0 0 41 41"
@@ -330,6 +331,7 @@ const Icons: React.FC<LoginCardProps> = ({
     ),
     gradeIcon: (
       <svg
+      className={`${className} `}
         width="31"
         height="41"
         viewBox="0 0 31 41"
@@ -388,6 +390,7 @@ const Icons: React.FC<LoginCardProps> = ({
     ),
     percentageIcon: (
       <svg
+      className={`${className} `}
         width="28"
         height="31"
         viewBox="0 0 28 31"
@@ -402,6 +405,7 @@ const Icons: React.FC<LoginCardProps> = ({
     ),
     motherIcon: (
       <svg
+      className={`${className} `}
         width="42"
         height="50"
         viewBox="0 0 42 50"
@@ -416,6 +420,7 @@ const Icons: React.FC<LoginCardProps> = ({
     ),
     birthIcon: (
       <svg
+      className={`${className} `}
         width="46"
         height="47"
         viewBox="0 0 46 47"
@@ -474,6 +479,7 @@ const Icons: React.FC<LoginCardProps> = ({
     ),
     addressIcon: (
       <svg
+      className={`${className} `}
         width="36"
         height="49"
         viewBox="0 0 36 49"
@@ -492,6 +498,7 @@ const Icons: React.FC<LoginCardProps> = ({
     ),
     mailIcon: (
       <svg
+      className={`${className} `}
         width="48"
         height="33"
         viewBox="0 0 48 33"
@@ -506,6 +513,7 @@ const Icons: React.FC<LoginCardProps> = ({
     ),
     fatherIcon: (
       <svg
+        className={`${className} `}
         width="55"
         height="56"
         viewBox="0 0 55 56"
@@ -532,6 +540,7 @@ const Icons: React.FC<LoginCardProps> = ({
     ),
     bigMobileIcon: (
       <svg
+      className={`${className} `}
         width="55"
         height="56"
         viewBox="0 0 55 56"
