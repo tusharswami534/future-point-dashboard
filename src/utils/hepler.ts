@@ -178,7 +178,7 @@ export const STUDENTS_LIST = [
     marks: [
       {
         subject: "Maths",
-        marks: 92,
+        marks: 85,
         grade: "A+",
       },
       {
