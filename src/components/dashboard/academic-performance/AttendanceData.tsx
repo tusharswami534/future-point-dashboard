@@ -45,6 +45,7 @@ const AttendanceData = () => {
           className="flex relative justify-center h-[516px] bg-light-white border border-solid border-light-blue-two pb-10 rounded-2xl items-end"
         >
           <ReactApexChart
+            className="relative z-20"
             options={state.options}
             series={state.series}
             type="donut"
@@ -55,6 +56,18 @@ const AttendanceData = () => {
           </span>
           <span className="py-[9.52px] rounded-2xl top-[10%] left-[64%] px-[14.5px] absolute border items-center border-solid border-dark-green bg-dark-green/10">
             Total Absent <span className="text-2xl">20</span>
+          </span>
+          <span className="absolute top-[45%] left-[14%]">
+            <Icons icon="presentLine" />
+          </span>
+          <span className="py-[9.52px] rounded-2xl top-[35%] left-[3%] px-[14.5px] absolute border items-center border-solid border-dark-green bg-dark-green/10">
+            Total Present <span className="text-2xl">180</span>
+          </span>
+          <span className="absolute top-[56%] right-[16%]">
+            <Icons icon="leaveLine" />
+          </span>
+          <span className="py-[9.52px] rounded-2xl top-[74%] right-[5%] px-[14.5px] absolute border items-center border-solid border-dark-green bg-dark-green/10">
+            Total Leave <span className="text-2xl">65</span>
           </span>
         </div>
       </div>

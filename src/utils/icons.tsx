@@ -563,7 +563,7 @@ const Icons: React.FC<LoginCardProps> = ({
         <path
           d="M0.999217 84.2999V0.799903H80.4992"
           stroke="#050505"
-          stroke-dasharray="5 5"
+          strokeDasharray="5 5"
         />
       </svg>
     ),
@@ -578,7 +578,7 @@ const Icons: React.FC<LoginCardProps> = ({
         <path
           d="M129 113.97H1V0.857422"
           stroke="#050505"
-          stroke-dasharray="5 5"
+          strokeDasharray="5 5"
         />
       </svg>
     ),
@@ -593,7 +593,7 @@ const Icons: React.FC<LoginCardProps> = ({
         <path
           d="M-3.75509e-06 0.999997H109V93"
           stroke="#050505"
-          stroke-dasharray="5 5"
+          strokeDasharray="5 5"
         />
       </svg>
     ),
