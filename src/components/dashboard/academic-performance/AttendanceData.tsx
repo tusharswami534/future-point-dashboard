@@ -69,7 +69,7 @@ const AttendanceData = () => {
           <span className="py-[9.52px] whitespace-nowrap flex gap-1 text-dark-green rounded-[73px] top-[-30%] left-[73%] px-[14.5px] absolute max-[1200px]:hidden border items-center border-solid border-dark-green bg-dark-green/10">
             Total Absent <span className="text-2xl font-semibold">20</span>
           </span>
-          <span className="absolute max-[1200px]:hidden top-[30%] left-[-20%]">
+          <span className="absolute max-[1200px]:hidden top-[30%] left-[-18%]">
             <Icons icon="presentLine" />
           </span>
           <span className="py-[9.52px] rounded-[73px] flex gap-1 text-blue top-[15%] left-[-40%] px-[14.5px] absolute max-[1200px]:hidden border items-center border-solid border-blue bg-blue/10">
@@ -80,6 +80,10 @@ const AttendanceData = () => {
           </span>
           <span className="py-[9.52px] rounded-[73px] flex gap-1 text-dark-blue top-[74%] right-[-31%] px-[14.5px] absolute max-[1200px]:hidden border items-center border-solid border-dark-blue bg-dark-blue/10">
             Total Leave <span className="text-2xl font-semibold">65</span>
+          </span>
+          <span className="absolute text-center flex text-dark-black justify-center items-center flex-col size-[193px] top-1/2 left-1/2 -translate-x-1/2 bg-dark-blue/10 rounded-full -translate-y-1/2">
+            Total Attendance{" "}
+            <span className="block text-2xl font-semibold">265</span>
           </span>
         </div>
       </div>

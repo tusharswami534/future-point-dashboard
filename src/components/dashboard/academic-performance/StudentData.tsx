@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import React from "react";
 
-const StudentData = ({ totalNumber }: { totalNumber: number }) => {
+const StudentData = ({ totalNumber }: { totalNumber: string }) => {
   const params = useParams();
   const { student } = params;
   const combinedList = [...STUDENTS_LIST];
