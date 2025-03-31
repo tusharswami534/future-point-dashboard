@@ -26,7 +26,7 @@ const StudentData = () => {
                         <div className="flex flex-col">
                             <p className='2xl:text-[32px] md:text-2xl text-dark-blue pb-[3px] leading-160 font-semibold'>{index === 0 ? "485/500" : index === 1 ? "220/320" : index === 2 ? "A+" : "91%"} </p>
                             <p className='text-dark-black leading-160 max-md:text-sm'>{item.title} </p>
-                        </div>
+                        </div> 
                         <div className="bg-light-blue rounded-full size-[50px] md:size-[60px] lg:size-[75px] flex items-center justify-center "><Icons icon={item.icon} className="max-lg:size-[30px]" /> </div>
                     </div>
                 ))}
