@@ -20,7 +20,7 @@ const SideBar = ({ open, close, darkTheme }: any) => {
         }`}
     >
       <div className="py-1.5  mb-10 max-lg:mb-5 px-6">
-        <p className="xl:text-4xl lg:!text-3xl lg:hidden md:text-2xl text-xl font-semibold leading-130 text-dark-black max-sm:tracking-[-1px]">
+        <p className={`xl:text-4xl lg:!text-3xl lg:hidden md:text-2xl text-xl font-semibold leading-130 text-dark-black max-sm:tracking-[-1px] ${darkTheme && "text-light-white"}`}>
           {title}
         </p>
         <Link className="max-lg:hidden" href={"/"}>

@@ -31,7 +31,7 @@ const DashboardHeader = ({ close, darkTheme, setDarkTheme }: any) => {
         </p>
         <Link className="lg:hidden" href={"/"}>
           <Image
-            src={"/assets/images/logo.webp"}
+            src={ darkTheme ? "/assets/images/dark-theme-logo.webp" : "/assets/images/logo.webp"}
             width={215}
             height={54.84}
             alt="logo"
