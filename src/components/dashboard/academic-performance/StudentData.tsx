@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import React from "react";
 
-const StudentData = ({ totalNumber }: { totalNumber: string }) => {
+const StudentData = ({ totalNumber,percentage}: { totalNumber: string; percentage: string }) => {
     const params = useParams();
     const { student } = params;
     const combinedList = [...STUDENTS_LIST];
@@ -25,7 +25,7 @@ const StudentData = ({ totalNumber }: { totalNumber: string }) => {
                     <div key={index} className="flex items-center justify-between transition-all duration-300 hover:shadow-button p-3 lg:p-[18px] border rounded-xl border-light-blue-two bg-light-white">
                         <div className="flex flex-col">
                             <p className="2xl:text-[32px] md:text-2xl text-dark-blue pb-[3px] leading-160 font-semibold">
-                                {index === 0 ? totalNumber : index === 1 ? "220/320" : index === 2 ? "A+" : "91%"}{" "}
+                                {index === 0 ? totalNumber : index === 1 ? "220/320" : index === 2 ? "A+" : percentage }{" "}
                             </p>
                             <p className="text-dark-black leading-160 max-md:text-sm">{item.title}{" "}</p>
                         </div>

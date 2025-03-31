@@ -35,10 +35,10 @@ const AcademicPerformance = () => {
   const totalMarks = markList?.reduce((accumulator, item) => {
     return accumulator + item.marks;
   }, 0);
-
+  const percentage = totalMarks ? Math.round((totalMarks / 500) * 100) : 0;
   return (
     <div className="pb-24 flex flex-col gap-[30px] px-[30px] max-md:px-4">
-      <StudentData totalNumber={`${totalMarks}/500` || "0"} />
+      <StudentData totalNumber={`${totalMarks}/500` || "0"} percentage={`${percentage}%`} />
       <StudentReport />
       <FeedBack />
     </div>
