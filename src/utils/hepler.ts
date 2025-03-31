@@ -111,8 +111,8 @@ export const STUDENTS_LIST = [
     number: 8986527831,
     fatherName: "Rajpal Singh",
     motherName: "Sujata Kumari",
-    birthDate: "06/07/2009",
-    email: "rohanduhan@gmail.com",
+    birthDate: "06/07/2008",
+    email: "mohanduhan@gmail.com",
     adderss: "6th KM Stone, O P Jindal, Hisar - 125005",
     subject: [
       "Math",
@@ -163,8 +163,8 @@ export const STUDENTS_LIST = [
     number: 8986527831,
     fatherName: "Rajpal Singh",
     motherName: "Sujata Kumari",
-    birthDate: "06/07/2009",
-    email: "rohanduhan@gmail.com",
+    birthDate: "08/02/2005",
+    email: "sohanduhan@gmail.com",
     adderss: "6th KM Stone, O P Jindal, Hisar - 125005",
     subject: [
       "Math",
