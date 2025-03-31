@@ -110,7 +110,7 @@ const NotificationBar = ({ darkTheme }: { darkTheme: any }) => {
         </div>
         {notifications.length === 0 && (
           <div className="flex flex-col items-center justify-center gap-2 py-10">
-            <p className="text-2xl font-semibold leading-160 text-dark-black">
+            <p className={`text-2xl font-semibold leading-160 text-dark-black ${darkTheme && "text-light-white"}`}>
               No Notifications
             </p>
           </div>
