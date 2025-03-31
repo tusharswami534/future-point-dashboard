@@ -32,7 +32,7 @@ const StudentData = () => {
                 ))}
             </div>
             {studentList && (
-                <div className="grid max-[1439px]:grid-cols-2  grid-cols-3 border-light-sky-blue border rounded-2xl px-2 py-6 md:p-[30px] 2xl:items-center">
+                <div className="grid max-[1439px]:grid-cols-2  grid-cols-3 border-light-sky-blue border rounded-2xl px-2 py-6 md:p-[30px] min-[1535px]:items-center">
                     <div className="col-span-2 md:col-span-1">
                         <Image className='' src={studentList.image} width={483} height={498} alt={studentList.name} />
                     </div>
@@ -108,7 +108,7 @@ const StudentData = () => {
                                             <p className='text-dark-blue/70 leading-160 max-md:text-sm'>{item}</p>
                                         </div>
                                     ))}
-                                    <p className='leading-160 max-md:text-sm text-dark-black border border-dark-blue rounded-full flex items-center justify-center md:w-[179px] md:h-[38px] h-[30px] w-[160px] tracking-[-0.5px]'>See Daily Schedule</p>
+                                    <p className='leading-160 max-md:text-sm text-dark-blue border border-dark-blue rounded-full flex items-center justify-center md:w-[179px] md:h-[38px] h-[30px] w-[160px] tracking-[-0.5px]'>See Daily Schedule</p>
                                 </div>
                             </div>
                         </div>
