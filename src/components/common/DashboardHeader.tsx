@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
-const DashboardHeader = ({ close }: any) => {
+const DashboardHeader = ({ close, darkThem, setDarkThem }: any) => {
   const router = useRouter();
   const [showProfile, setShowProfile] = useState(false);
   const searchParams = useSearchParams();
@@ -16,7 +16,7 @@ const DashboardHeader = ({ close }: any) => {
       (item) => item.title.toLowerCase().replaceAll(" ", "-") === tab
     )?.title || "Notification";
   return (
-    <div className="bg-light-white z-30 w-full">
+    <div className="bg-light-white text-black z-30 w-full">
       <div className="px-4 md:px-[30px] flex items-center justify-between py-7">
         <p className="xl:text-4xl lg:!text-3xl max-lg:hidden md:text-2xl text-xl font-semibold leading-130 text-dark-black max-sm:tracking-[-1px]">
           {title}
@@ -31,6 +31,16 @@ const DashboardHeader = ({ close }: any) => {
           />
         </Link>
         <div className="flex items-center lg:gap-[35px] gap-3 sm:gap-6">
+          <button
+            onClick={() => setDarkThem(!darkThem)}
+            className={`p-3 border border-solid cursor-pointer rounded-full font-semibold text-xl leading-160 ${
+              darkThem
+                ? "text-white border-white bg-dark-blue"
+                : "border-dark-blue"
+            }`}
+          >
+            <Icons icon="themIcon" iconClass={darkThem && "fill-white"} />
+          </button>
           <button
             onClick={() => {
               router.push("/dashboard?tab=notification");

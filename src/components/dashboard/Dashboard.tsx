@@ -8,6 +8,7 @@ import NotificationBar from "./NotificationBar";
 import AcademicPerformance from "./AcademicPerformance";
 import FeeStatus from "./FeeStatus";
 const Dashboard = () => {
+  const [dark, setDark] = useState(false);
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const searchParams = useSearchParams();
@@ -50,7 +51,11 @@ const Dashboard = () => {
               }`}
             ></span>
           </button>
-          <DashboardHeader close={() => setOpen(false)} />
+          <DashboardHeader
+            darkThem={dark}
+            setDarkThem={setDark}
+            close={() => setOpen(false)}
+          />
         </div>
         <div className="overflow-y-auto h-full pb-28">
           {tab === "dashboard" && <DashBoardData />}
