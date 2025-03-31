@@ -32,6 +32,8 @@ const StudentReport = () => {
     }
   };
 
+ 
+
   return (
     <div className="grid grid-cols-2 gap-[30px] max-[1870px]:grid-cols-1">
       <div className="flex border border-solid border-light-blue-two rounded-2xl flex-col">
