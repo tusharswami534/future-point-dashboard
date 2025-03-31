@@ -559,7 +559,7 @@ const Icons: React.FC<LoginCardProps> = ({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
+        <path className={` transition-all duration-300 ease-linear ${iconClass}`}
           d="M0.999217 84.2999V0.799903H80.4992"
           stroke="#050505"
           strokeDasharray="5 5"
@@ -574,7 +574,7 @@ const Icons: React.FC<LoginCardProps> = ({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
+        <path className={` transition-all duration-300 ease-linear ${iconClass}`}
           d="M129 113.97H1V0.857422"
           stroke="#050505"
           strokeDasharray="5 5"
@@ -589,7 +589,7 @@ const Icons: React.FC<LoginCardProps> = ({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
+        <path className={` transition-all duration-300 ease-linear ${iconClass}`}
           d="M-3.75509e-06 0.999997H109V93"
           stroke="#050505"
           strokeDasharray="5 5"

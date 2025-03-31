@@ -3,7 +3,7 @@ import { useParams } from "next/navigation";
 import React, { useState } from "react";
 import AttendanceData from "./AttendanceData";
 
-const StudentReport = () => {
+const StudentReport = ({dark} : {dark : any}) => {
   const [term, setTerm] = useState("1st Term Exam Score");
   const params = useParams();
   const { student } = params;
@@ -36,12 +36,12 @@ const StudentReport = () => {
     <div className="grid grid-cols-2 gap-[30px] max-[1870px]:grid-cols-1">
       <div className="flex border border-solid border-light-blue-two rounded-2xl flex-col">
         <div className="flex w-full items-center py-[21px] px-5 justify-between">
-          <p className="text-2xl max-sm:hidden max-xl:text-text-xl max-lg:text-lg">
+          <p className={`text-2xl max-sm:hidden max-xl:text-text-xl max-lg:text-lg ${dark && 'text-white'}`}>
             {term}
           </p>
           <select
             onChange={handleChange}
-            className="py-[13px] pl-[23px] cursor-pointer max-xl:py-2.5 max-xl:pl-4 max-xl:pr-9 pr-[49px] text-blue bg-[center_right_28px] bg-no-repeat bg-[url('/assets/images/drop-down-icon.webp')] outline-none appearance-none rounded-[47px] border border-blue"
+            className={`py-[13px] pl-[23px] cursor-pointer max-xl:py-2.5 max-xl:pl-4 max-xl:pr-9 pr-[49px] text-blue bg-[center_right_28px] bg-no-repeat bg-[url('/assets/images/drop-down-icon.webp')] outline-none appearance-none rounded-[47px] border border-blue ${dark && 'bg-light-white border-light-white'}`}
           >
             <option value="1st">1st Term Exam Result </option>
             <option value="2nd">2nd Term Exam Result </option>
@@ -76,13 +76,13 @@ const StudentReport = () => {
                   }`}
                   key={index}
                 >
-                  <td className="py-[22.8px] leading-160 !text-dark-black pl-6 font-semibold">
+                  <td className={`py-[22.8px] leading-160 !text-dark-black pl-6 font-semibold ${dark && '!text-white'}`}>
                     {item.subject}
                   </td>
-                  <td className="pl-6 text-gray">
+                  <td className={`pl-6 text-gray ${dark && 'text-white/70'}`}>
                     {index === 4 ? 60 : index === 2 ? 60 : 100}
                   </td>
-                  <td className="pl-6 text-gray">{item.marks}</td>
+                  <td className={`pl-6 text-gray ${dark && 'text-white/70'}`}>{item.marks}</td>
                   <td
                     className={`pl-6 ${
                       item.marks > 33 ? "text-green" : "text-red"
@@ -90,7 +90,7 @@ const StudentReport = () => {
                   >
                     {item.marks > 33 ? "Pass" : "Fail"}
                   </td>
-                  <td className="leading-160 text-dark-blue pl-6">
+                  <td className={`leading-160 text-dark-blue pl-6 ${dark && 'text-light-white'}`}>
                     {item.grade}
                   </td>
                 </tr>
@@ -100,7 +100,7 @@ const StudentReport = () => {
         </div>
       </div>
       <div className="w-full">
-        <AttendanceData />
+        <AttendanceData dark={dark} />
       </div>
     </div>
   );

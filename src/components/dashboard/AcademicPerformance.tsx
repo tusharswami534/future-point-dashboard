@@ -5,7 +5,7 @@ import FeedBack from "./academic-performance/TeacherFeedback";
 import { useParams, useRouter } from "next/navigation";
 import { STUDENTS_LIST } from "@/utils/hepler";
 
-const AcademicPerformance = ({darkTheme} : {darkTheme : any}) => {
+const AcademicPerformance = ({ darkTheme }: { darkTheme: any }) => {
   const router = useRouter();
   const params = useParams();
   const { student } = params;
@@ -37,10 +37,18 @@ const AcademicPerformance = ({darkTheme} : {darkTheme : any}) => {
   }, 0);
   const percentage = totalMarks ? Math.round((totalMarks / 500) * 100) : 0;
   return (
-    <div className="pb-24 flex flex-col gap-[30px] px-[30px] max-md:px-4">
-      <StudentData dark={darkTheme} totalNumber={`${totalMarks}/500` || "0"} percentage={`${percentage}%`} />
-      <StudentReport />
-      <FeedBack />
+    <div
+      className={`pb-24 flex flex-col gap-[30px] px-[30px] max-md:px-4 ${
+        darkTheme && "bg-dark-black"
+      }`}
+    >
+      <StudentData
+        dark={darkTheme}
+        totalNumber={`${totalMarks}/500` || "0"}
+        percentage={`${percentage}%`}
+      />
+      <StudentReport dark={darkTheme} />
+      <FeedBack dark={darkTheme} />
     </div>
   );
 };
