@@ -11,7 +11,7 @@ const AcademicPerformance = () => {
 
   useEffect(() => {
     if (!student) {
-      router.push("/");
+      router.push("/dashboard");
       alert("Please select a student");
     }
   });

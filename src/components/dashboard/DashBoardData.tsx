@@ -11,7 +11,7 @@ const DashBoardData = () => {
 
   useEffect(() => {
     if (student) {
-      router.push("/");
+      router.push("/dashboard");
     }
   }, [student, router]);
 
@@ -47,7 +47,7 @@ const DashBoardData = () => {
           <div
             onClick={() =>
               router.push(
-                `/${item.name
+                `/dashboard/${item.name
                   .toLocaleLowerCase()
                   .replaceAll(" ", "-")}?tab=academic-performance`
               )

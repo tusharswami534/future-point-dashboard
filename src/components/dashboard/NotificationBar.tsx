@@ -6,8 +6,6 @@ import { useParams, useRouter } from "next/navigation";
 
 const NotificationBar = () => {
   const router = useRouter();
-  // const params = useParams();
-  // const { student } = params;
   const [notifications, setNotifications] = useState(NOTIFICATIONS_LIST);
 
   const handleClearNotification = (index: number) => {
@@ -60,13 +58,6 @@ const NotificationBar = () => {
 
     setNotifications(filteredNotifications);
   };
-
-  // useEffect(() => {
-  //   if (student) {
-  //     student.replaceAll(student, "");
-  //   }
-  // }, [student]);
-
   return (
     <div className="bg-light-gray">
       <div className="sm:p-[30px] py-6 px-4">

@@ -33,7 +33,7 @@ const DashboardHeader = ({ close }: any) => {
         <div className="flex items-center lg:gap-[35px] gap-3 sm:gap-6">
           <button
             onClick={() => {
-              router.push("?tab=notification");
+              router.push("/dashboard?tab=notification");
               close();
             }}
             className={`bg-light cursor-pointer flex items-center justify-center lg:size-[58px] sm:size-12 size-10 rounded-full ${

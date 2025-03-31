@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (!tab) {
-      router.push("?tab=dashboard");
+      router.push("/dashboard?tab=dashboard");
     }
   }, [tab, router]);
 
