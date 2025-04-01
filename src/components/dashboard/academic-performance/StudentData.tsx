@@ -7,7 +7,6 @@ import React, { useEffect } from "react";
 const StudentData = ({
   totalNumber,
   percentage,
- 
 }: {
   totalNumber: string;
   percentage: string;
@@ -25,26 +24,25 @@ const StudentData = ({
     }
     return false;
   });
-  console.log(studentList, "studentList");
   const [dark, setDarkTheme] = React.useState();
-    useEffect(() => {
-      const savedDarkMode = localStorage.getItem("darkMode");
-      if (savedDarkMode) {
-        setDarkTheme(JSON.parse(savedDarkMode));
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem("darkMode");
+    if (savedDarkMode) {
+      setDarkTheme(JSON.parse(savedDarkMode));
+    }
+
+    const handleDarkModeChange = () => {
+      const updatedDarkMode = localStorage.getItem("darkMode");
+      if (updatedDarkMode) {
+        setDarkTheme(JSON.parse(updatedDarkMode));
       }
-  
-      const handleDarkModeChange = () => {
-        const updatedDarkMode = localStorage.getItem("darkMode");
-        if (updatedDarkMode) {
-          setDarkTheme(JSON.parse(updatedDarkMode));
-        }
-      };
-  
-      window.addEventListener("darkModeChange", handleDarkModeChange);
-      return () => {
-        window.removeEventListener("darkModeChange", handleDarkModeChange);
-      };
-    }, []);
+    };
+
+    window.addEventListener("darkModeChange", handleDarkModeChange);
+    return () => {
+      window.removeEventListener("darkModeChange", handleDarkModeChange);
+    };
+  }, []);
 
   return (
     <div
@@ -84,7 +82,11 @@ const StudentData = ({
                 {item.title}{" "}
               </p>
             </div>
-            <div className={`bg-light-blue rounded-full size-[50px] md:size-[60px] lg:size-[75px] flex items-center justify-center ${dark && 'bg-light-white'}`}>
+            <div
+              className={`bg-light-blue rounded-full size-[50px] md:size-[60px] lg:size-[75px] flex items-center justify-center ${
+                dark && "bg-light-white"
+              }`}
+            >
               <Icons icon={item.icon} className="max-lg:size-[30px]" />{" "}
             </div>
           </div>
@@ -131,11 +133,19 @@ const StudentData = ({
                     <Icons icon="fatherIcon" className="max-2xl:w-[40px]" />
                   </div>
                   <div className="flex flex-col">
-                    <p className={`text-sm leading-160 text-dark-black/70 ${dark && 'text-white/70'}`}>
+                    <p
+                      className={`text-sm leading-160 text-dark-black/70 ${
+                        dark && "text-white/70"
+                      }`}
+                    >
                       {" "}
                       Father Name:
                     </p>
-                    <p className={`text-dark-black leading-160 pt-[3px] ${dark && 'text-white'}`}>
+                    <p
+                      className={`text-dark-black leading-160 pt-[3px] ${
+                        dark && "text-white"
+                      }`}
+                    >
                       {studentList.fatherName}
                     </p>
                   </div>
@@ -145,11 +155,19 @@ const StudentData = ({
                     <Icons icon="motherIcon" className="max-2xl:w-[30px]" />
                   </div>
                   <div className="flex flex-col">
-                    <p className={`text-sm leading-160 text-dark-black/70 ${dark && 'text-white/70'}`}>
+                    <p
+                      className={`text-sm leading-160 text-dark-black/70 ${
+                        dark && "text-white/70"
+                      }`}
+                    >
                       {" "}
                       Mother Name:
                     </p>
-                    <p className={`text-dark-black leading-160 pt-[3px] ${dark && 'text-white'}`}>
+                    <p
+                      className={`text-dark-black leading-160 pt-[3px] ${
+                        dark && "text-white"
+                      }`}
+                    >
                       {studentList.motherName}{" "}
                     </p>
                   </div>
@@ -159,10 +177,18 @@ const StudentData = ({
                     <Icons icon="birthIcon" className="max-2xl:w-[30px]" />
                   </div>
                   <div className="flex flex-col">
-                    <p className={`text-sm leading-160 text-dark-black/70 ${dark && 'text-white/70'}`}>
+                    <p
+                      className={`text-sm leading-160 text-dark-black/70 ${
+                        dark && "text-white/70"
+                      }`}
+                    >
                       Date of Birth:
                     </p>
-                    <p className={`text-dark-black leading-160 pt-[3px] ${dark && 'text-white'}`}>
+                    <p
+                      className={`text-dark-black leading-160 pt-[3px] ${
+                        dark && "text-white"
+                      }`}
+                    >
                       {studentList.birthDate}{" "}
                     </p>
                   </div>
@@ -172,10 +198,18 @@ const StudentData = ({
                     <Icons icon="bigMobileIcon" className="max-2xl:w-[30px]" />
                   </div>
                   <div className="flex flex-col">
-                    <p className={`text-sm leading-160 text-dark-black/70 ${dark && 'text-white/70'}`}>
+                    <p
+                      className={`text-sm leading-160 text-dark-black/70 ${
+                        dark && "text-white/70"
+                      }`}
+                    >
                       Phone No:
                     </p>
-                    <p className={`text-dark-black leading-160 pt-[3px] ${dark && 'text-white'}`}>
+                    <p
+                      className={`text-dark-black leading-160 pt-[3px] ${
+                        dark && "text-white"
+                      }`}
+                    >
                       {studentList.number}{" "}
                     </p>
                   </div>
@@ -185,10 +219,18 @@ const StudentData = ({
                     <Icons icon="mailIcon" className="max-2xl:w-[30px]" />
                   </div>
                   <div className="flex flex-col">
-                    <p className={`text-sm leading-160 text-dark-black/70 ${dark && 'text-white/70'}`}>
+                    <p
+                      className={`text-sm leading-160 text-dark-black/70 ${
+                        dark && "text-white/70"
+                      }`}
+                    >
                       Email:
                     </p>
-                    <p className={`text-dark-black leading-160 pt-[3px] ${dark && 'text-white'}`}>
+                    <p
+                      className={`text-dark-black leading-160 pt-[3px] ${
+                        dark && "text-white"
+                      }`}
+                    >
                       {studentList.email}
                     </p>
                   </div>
@@ -198,11 +240,19 @@ const StudentData = ({
                     <Icons icon="addressIcon" className="max-2xl:w-[30px]" />
                   </div>
                   <div className="flex flex-col">
-                    <p className={`text-sm leading-160 text-dark-black/70 ${dark && 'text-white/70'}`}>
+                    <p
+                      className={`text-sm leading-160 text-dark-black/70 ${
+                        dark && "text-white/70"
+                      }`}
+                    >
                       {" "}
                       Address:
                     </p>
-                    <p className={`text-dark-black leading-160 pt-[3px] max-w-[199px] ${dark && 'text-white'}`}>
+                    <p
+                      className={`text-dark-black leading-160 pt-[3px] max-w-[199px] ${
+                        dark && "text-white"
+                      }`}
+                    >
                       {studentList.adderss}{" "}
                     </p>
                   </div>
@@ -216,14 +266,24 @@ const StudentData = ({
                   {studentList.subject.map((item: any, index: number) => (
                     <div
                       key={index}
-                      className={`border border-dark-blue bg-dark-blue/10 rounded-full flex items-center justify-center md:w-[97px] md:h-[38px] w-[100px] h-[30px] ${dark && 'border-white'}`}
+                      className={`border border-dark-blue bg-dark-blue/10 rounded-full flex items-center justify-center md:w-[97px] md:h-[38px] w-[100px] h-[30px] ${
+                        dark && "border-white"
+                      }`}
                     >
-                      <p className={`text-dark-blue/70 leading-160 max-md:text-sm ${dark && 'text-white'}`}>
+                      <p
+                        className={`text-dark-blue/70 leading-160 max-md:text-sm ${
+                          dark && "text-white"
+                        }`}
+                      >
                         {item}
                       </p>
                     </div>
                   ))}
-                  <p className={`leading-160 max-md:text-sm text-dark-blue border border-dark-blue rounded-full flex items-center justify-center md:w-[179px] md:h-[38px] h-[30px] w-[160px] tracking-[-0.5px] ${dark && 'border-white text-white'}`}>
+                  <p
+                    className={`leading-160 max-md:text-sm text-dark-blue border border-dark-blue rounded-full flex items-center justify-center md:w-[179px] md:h-[38px] h-[30px] w-[160px] tracking-[-0.5px] ${
+                      dark && "border-white text-white"
+                    }`}
+                  >
                     {" "}
                     See Daily Schedule
                   </p>
