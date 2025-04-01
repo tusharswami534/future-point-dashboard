@@ -24,6 +24,7 @@ const DashboardHeader = ({ close }: any) => {
       document.body.classList.remove("!bg-dark-black");
     }
   }, []);
+
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(dark));
     window.dispatchEvent(new Event("darkModeChange"));
