@@ -25,8 +25,7 @@ const AcademicPerformance = () => {
 
   useEffect(() => {
     if (!student) {
-      router.push("/dashboard");
-      alert("Please select a student");
+      router.push("/dashboard?tab=dashboard");
     }
   }, [student, router]);
 
