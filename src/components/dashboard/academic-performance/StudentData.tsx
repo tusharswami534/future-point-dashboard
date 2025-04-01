@@ -2,16 +2,15 @@ import { STUDENTS_LIST, STUDENTS_PERFORMANCE_LIST } from "@/utils/hepler";
 import Icons from "@/utils/icons";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 
 const StudentData = ({
   totalNumber,
   percentage,
-  dark,
+ 
 }: {
   totalNumber: string;
   percentage: string;
-  dark: any;
 }) => {
   const params = useParams();
   const { student } = params;
@@ -27,6 +26,25 @@ const StudentData = ({
     return false;
   });
   console.log(studentList, "studentList");
+  const [dark, setDarkTheme] = React.useState(false);
+    useEffect(() => {
+      const savedDarkMode = localStorage.getItem("darkMode");
+      if (savedDarkMode) {
+        setDarkTheme(JSON.parse(savedDarkMode));
+      }
+  
+      const handleDarkModeChange = () => {
+        const updatedDarkMode = localStorage.getItem("darkMode");
+        if (updatedDarkMode) {
+          setDarkTheme(JSON.parse(updatedDarkMode));
+        }
+      };
+  
+      window.addEventListener("darkModeChange", handleDarkModeChange);
+      return () => {
+        window.removeEventListener("darkModeChange", handleDarkModeChange);
+      };
+    }, []);
 
   return (
     <div

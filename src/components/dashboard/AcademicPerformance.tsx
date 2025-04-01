@@ -1,14 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import StudentReport from "./academic-performance/StudentReport";
 import StudentData from "./academic-performance/StudentData";
 import FeedBack from "./academic-performance/TeacherFeedback";
 import { useParams, useRouter } from "next/navigation";
 import { STUDENTS_LIST } from "@/utils/hepler";
 
-const AcademicPerformance = ({ darkTheme }: { darkTheme: any }) => {
+const AcademicPerformance = () => {
+  const [darkTheme, setDarkTheme] = useState(false);
   const router = useRouter();
   const params = useParams();
   const { student } = params;
+
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem("darkMode");
+    if (savedDarkMode) {
+      setDarkTheme(JSON.parse(savedDarkMode));
+    }
+
+    const handleDarkModeChange = () => {
+      const updatedDarkMode = localStorage.getItem("darkMode");
+      if (updatedDarkMode) {
+        setDarkTheme(JSON.parse(updatedDarkMode));
+      }
+    };
+
+    window.addEventListener("darkModeChange", handleDarkModeChange);
+    return () => {
+      window.removeEventListener("darkModeChange", handleDarkModeChange);
+    };
+  }, []);
 
   useEffect(() => {
     if (!student) {
@@ -43,12 +63,11 @@ const AcademicPerformance = ({ darkTheme }: { darkTheme: any }) => {
       }`}
     >
       <StudentData
-        dark={darkTheme}
         totalNumber={`${totalMarks}/500` || "0"}
         percentage={`${percentage}%`}
       />
-      <StudentReport dark={darkTheme} />
-      <FeedBack dark={darkTheme} />
+      <StudentReport />
+      <FeedBack />
     </div>
   );
 };

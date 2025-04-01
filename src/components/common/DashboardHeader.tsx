@@ -5,9 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { domainToUnicode } from "url";
 
 const DashboardHeader = ({ close, darkTheme, setDarkTheme }: any) => {
+  const [darkThemeHeader, setDarkThemeHeader] = useState(false);
   const router = useRouter();
   const [showProfile, setShowProfile] = useState(false);
   const searchParams = useSearchParams();
@@ -23,10 +23,30 @@ const DashboardHeader = ({ close, darkTheme, setDarkTheme }: any) => {
         document.body.classList.remove("!bg-dark-black");
       }
     })
+    
+    useEffect(() => {
+          const savedDarkMode = localStorage.getItem("darkMode");
+          if (savedDarkMode) {
+            setDarkThemeHeader(JSON.parse(savedDarkMode));
+          }
+      
+          const handleDarkModeChange = () => {
+            const updatedDarkMode = localStorage.getItem("darkMode");
+            if (updatedDarkMode) {
+              setDarkThemeHeader(JSON.parse(updatedDarkMode));
+            }
+          };
+      
+          window.addEventListener("darkModeChange", handleDarkModeChange);
+          return () => {
+            window.removeEventListener("darkModeChange", handleDarkModeChange);
+          };
+        }, []);
+
   return (
-    <div className={`bg-light-white text-black z-30 w-full ${darkTheme && "!bg-dark-blue"}`}>
+    <div className={`bg-light-white text-black z-30 w-full ${darkThemeHeader && "!bg-dark-blue"}`}>
       <div className="px-4 md:px-[30px] flex items-center justify-between py-7">
-        <p className={`xl:text-4xl lg:!text-3xl max-lg:hidden md:text-2xl text-xl font-semibold leading-130 text-dark-black max-sm:tracking-[-1px] ${darkTheme && "text-light-white"}`}>
+        <p className={`xl:text-4xl lg:!text-3xl max-lg:hidden md:text-2xl text-xl font-semibold leading-130 text-dark-black max-sm:tracking-[-1px] ${darkThemeHeader && "text-light-white"}`}>
           {title}
         </p>
         <Link className="lg:hidden" href={"/"}>
@@ -42,19 +62,19 @@ const DashboardHeader = ({ close, darkTheme, setDarkTheme }: any) => {
           <button
             onClick={() => setDarkTheme(!darkTheme)}
             className={`p-3 border border-solid cursor-pointer rounded-full font-semibold text-xl leading-160 ${
-              darkTheme
+              darkThemeHeader
                 ? "text-white border-white bg-dark-blue"
                 : "border-dark-blue"
             }`}
           >
-            <Icons icon="themeIcon" iconClass={darkTheme && "fill-white"} />
+            <Icons icon="themeIcon" iconClass={darkThemeHeader ? "fill-white" : undefined} />
           </button>
           <button
             onClick={() => {
               router.push("/dashboard?tab=notification");
               close();
             }}
-            className={`bg-light cursor-pointer flex items-center justify-center lg:size-[58px] sm:size-12 size-10 rounded-full ${darkTheme && "!bg-blue"} ${
+            className={`bg-light cursor-pointer flex items-center justify-center lg:size-[58px] sm:size-12 size-10 rounded-full ${darkThemeHeader && "!bg-blue"} ${
               tab === "notification" && "!bg-dark-blue"
             }`}
           >
@@ -79,10 +99,10 @@ const DashboardHeader = ({ close, darkTheme, setDarkTheme }: any) => {
                 showProfile ? "block" : "max-sm:hidden"
               }`}
             >
-              <p className={`lg:text-lg font-semibold leading-160 whitespace-nowrap max-sm:text-white ${darkTheme && "text-light-white"}`}>
+              <p className={`lg:text-lg font-semibold leading-160 whitespace-nowrap max-sm:text-white ${darkThemeHeader && "text-light-white"}`}>
                 Rajpal Singh
               </p>
-              <p className={`text-sm leading-160 text-dark-blue max-sm:text-white ${darkTheme && "text-light-white"}`}>
+              <p className={`text-sm leading-160 text-dark-blue max-sm:text-white ${darkThemeHeader && "text-light-white"}`}>
                 Parent
               </p>
             </div>

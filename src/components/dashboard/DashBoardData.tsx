@@ -4,19 +4,43 @@ import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
-const DashBoardData = ({ darkTheme }: { darkTheme: any }) => {
+const DashBoardData = () => {
+  const [darkTheme, setDarkTheme] = React.useState(false);
   const router = useRouter();
   const params = useParams();
   const { student } = params;
-
+  
   useEffect(() => {
     if (student) {
       router.push("/dashboard");
     }
   }, [student, router]);
+  
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem("darkMode");
+    if (savedDarkMode) {
+      setDarkTheme(JSON.parse(savedDarkMode));
+    }
+
+    const handleDarkModeChange = () => {
+      const updatedDarkMode = localStorage.getItem("darkMode");
+      if (updatedDarkMode) {
+        setDarkTheme(JSON.parse(updatedDarkMode));
+      }
+    };
+
+    window.addEventListener("darkModeChange", handleDarkModeChange);
+    return () => {
+      window.removeEventListener("darkModeChange", handleDarkModeChange);
+    };
+  }, []);
 
   return (
-    <div className={`bg-light-gray flex w-full flex-col max-md:gap-5 gap-[30px] py-6 px-4 sm:p-[30px] ${darkTheme && "!bg-dark-black"}`}>
+    <div
+      className={`bg-light-gray flex w-full flex-col max-md:gap-5 gap-[30px] py-6 px-4 sm:p-[30px] ${
+        darkTheme && "!bg-dark-black"
+      }`}
+    >
       <div className="relative md:min-h-[277px] max-md:py-8 overflow-hidden shadow-layer md:rounded-2xl rounded-lg bg-cover px-[55px] max-lg:px-5 max-2xl:px-10 items-center justify-between flex bg-center bg-[url('/assets/images/dashboard-image-layer.webp')]">
         <div className="flex flex-col justify-center">
           <p className="md:text-xl leading-100 text-white/80 mb-1.5">
@@ -68,8 +92,20 @@ const DashBoardData = ({ darkTheme }: { darkTheme: any }) => {
                   <Icons icon="studentIcon" />
                 </div>
                 <div className="flex gap-[3px] flex-col">
-                  <p className={`text-dark-black/70 text-sm ${darkTheme && "text-light-white"}`}>Student Name:</p>
-                  <p className={`text-dark-black font-medium ${darkTheme && "text-light-white"}`}>{item.name}</p>
+                  <p
+                    className={`text-dark-black/70 text-sm ${
+                      darkTheme && "text-light-white"
+                    }`}
+                  >
+                    Student Name:
+                  </p>
+                  <p
+                    className={`text-dark-black font-medium ${
+                      darkTheme && "text-light-white"
+                    }`}
+                  >
+                    {item.name}
+                  </p>
                 </div>
               </div>
               <div className="flex gap-3">
@@ -77,8 +113,20 @@ const DashBoardData = ({ darkTheme }: { darkTheme: any }) => {
                   <Icons icon="classIcon" />
                 </div>
                 <div className="flex gap-[3px] flex-col">
-                  <p className={`text-dark-black/70 text-sm ${darkTheme && "text-light-white"}`}>Class:</p>
-                  <p className={`text-dark-black font-medium ${darkTheme && "text-light-white"}`}>{item.class}</p>
+                  <p
+                    className={`text-dark-black/70 text-sm ${
+                      darkTheme && "text-light-white"
+                    }`}
+                  >
+                    Class:
+                  </p>
+                  <p
+                    className={`text-dark-black font-medium ${
+                      darkTheme && "text-light-white"
+                    }`}
+                  >
+                    {item.class}
+                  </p>
                 </div>
               </div>
               <div className="flex gap-3">
@@ -86,8 +134,18 @@ const DashBoardData = ({ darkTheme }: { darkTheme: any }) => {
                   <Icons icon="mobileIcon" />
                 </div>
                 <div className="flex gap-[3px] flex-col">
-                  <p className={`text-dark-black/70 text-sm ${darkTheme && "text-light-white"}`}>Phone No:</p>
-                  <p className={`text-dark-black font-medium ${darkTheme && "text-light-white"}`}>
+                  <p
+                    className={`text-dark-black/70 text-sm ${
+                      darkTheme && "text-light-white"
+                    }`}
+                  >
+                    Phone No:
+                  </p>
+                  <p
+                    className={`text-dark-black font-medium ${
+                      darkTheme && "text-light-white"
+                    }`}
+                  >
                     {" "}
                     +91 {item.number}
                   </p>

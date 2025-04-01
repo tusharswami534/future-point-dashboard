@@ -1,9 +1,9 @@
 import { STUDENTS_LIST } from "@/utils/hepler";
 import { useParams } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AttendanceData from "./AttendanceData";
 
-const StudentReport = ({dark} : {dark : any}) => {
+const StudentReport = () => {
   const [term, setTerm] = useState("1st Term Exam Score");
   const params = useParams();
   const { student } = params;
@@ -31,6 +31,26 @@ const StudentReport = ({dark} : {dark : any}) => {
       setTerm("2nd Term Exam Score");
     }
   };
+
+  const [dark, setDarkTheme] = React.useState(false);
+    useEffect(() => {
+      const savedDarkMode = localStorage.getItem("darkMode");
+      if (savedDarkMode) {
+        setDarkTheme(JSON.parse(savedDarkMode));
+      }
+  
+      const handleDarkModeChange = () => {
+        const updatedDarkMode = localStorage.getItem("darkMode");
+        if (updatedDarkMode) {
+          setDarkTheme(JSON.parse(updatedDarkMode));
+        }
+      };
+  
+      window.addEventListener("darkModeChange", handleDarkModeChange);
+      return () => {
+        window.removeEventListener("darkModeChange", handleDarkModeChange);
+      };
+    }, []);
 
   return (
     <div className="grid grid-cols-2 gap-[30px] max-[1870px]:grid-cols-1">
@@ -100,7 +120,7 @@ const StudentReport = ({dark} : {dark : any}) => {
         </div>
       </div>
       <div className="w-full">
-        <AttendanceData dark={dark} />
+        <AttendanceData />
       </div>
     </div>
   );

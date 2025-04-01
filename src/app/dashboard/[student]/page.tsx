@@ -1,4 +1,3 @@
-import StudentReport from "@/components/dashboard/academic-performance/StudentReport";
 import Dashboard from "@/components/dashboard/Dashboard";
 import React from "react";
 

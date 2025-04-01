@@ -24,6 +24,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(dark));
+    window.dispatchEvent(new Event("darkModeChange"));
   }, [dark]);
 
   useEffect(() => {
@@ -34,7 +35,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex w-full relative pl-[325px] h-screen overflow-hidden max-xl:pl-[300px] max-lg:pl-0">
-      <SideBar open={open} close={() => setOpen(false)} darkTheme={dark} />
+      <SideBar open={open} close={() => setOpen(false)} />
       {open && (
         <div
           onClick={() => setOpen(false)}
@@ -70,12 +71,10 @@ const Dashboard = () => {
           />
         </div>
         <div className="overflow-y-auto h-full pb-28">
-          {tab === "dashboard" && <DashBoardData darkTheme={dark} />}
-          {tab === "academic-performance" && (
-            <AcademicPerformance darkTheme={dark} />
-          )}
+          {tab === "dashboard" && <DashBoardData />}
+          {tab === "academic-performance" && <AcademicPerformance />}
           {tab === "fee-status" && <FeeStatus />}
-          {tab === "notification" && <NotificationBar darkTheme={dark} />}
+          {tab === "notification" && <NotificationBar />}
         </div>
       </div>
     </div>
