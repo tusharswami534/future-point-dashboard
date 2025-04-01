@@ -6,8 +6,8 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-const DashboardHeader = ({ close, darkTheme, setDarkTheme }: any) => {
-  const [darkThemeHeader, setDarkThemeHeader] = useState(false);
+const DashboardHeader = ({ close }: any) => {
+  const [dark, setDark] = useState(false);
   const router = useRouter();
   const [showProfile, setShowProfile] = useState(false);
   const searchParams = useSearchParams();
@@ -15,38 +15,39 @@ const DashboardHeader = ({ close, darkTheme, setDarkTheme }: any) => {
   const title =
     DASHBOARD_BUTTON_LIST.find(
       (item) => item.title.toLowerCase().replaceAll(" ", "-") === tab
-    )?.title || "Notification"
-    useEffect(() => {
-      if (darkTheme) {
-        document.body.classList.add("!bg-dark-black");
-      } else {
-        document.body.classList.remove("!bg-dark-black");
-      }
-    })
-    
-    useEffect(() => {
-          const savedDarkMode = localStorage.getItem("darkMode");
-          if (savedDarkMode) {
-            setDarkThemeHeader(JSON.parse(savedDarkMode));
-          }
-      
-          const handleDarkModeChange = () => {
-            const updatedDarkMode = localStorage.getItem("darkMode");
-            if (updatedDarkMode) {
-              setDarkThemeHeader(JSON.parse(updatedDarkMode));
-            }
-          };
-      
-          window.addEventListener("darkModeChange", handleDarkModeChange);
-          return () => {
-            window.removeEventListener("darkModeChange", handleDarkModeChange);
-          };
-        }, []);
+    )?.title || "Notification";
+
+  useEffect(() => {
+    if (dark) {
+      document.body.classList.add("!bg-dark-black");
+    } else {
+      document.body.classList.remove("!bg-dark-black");
+    }
+  });
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem("darkMode");
+    if (savedDarkMode) {
+      setDark(JSON.parse(savedDarkMode));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", JSON.stringify(dark));
+    window.dispatchEvent(new Event("darkModeChange"));
+  }, [dark]);
 
   return (
-    <div className={`bg-light-white text-black z-30 w-full ${darkThemeHeader && "!bg-dark-blue"}`}>
+    <div
+      className={`bg-light-white text-black z-30 w-full ${
+        dark && "!bg-dark-blue"
+      }`}
+    >
       <div className="px-4 md:px-[30px] flex items-center justify-between py-7">
-        <p className={`xl:text-4xl lg:!text-3xl max-lg:hidden md:text-2xl text-xl font-semibold leading-130 text-dark-black max-sm:tracking-[-1px] ${darkThemeHeader && "text-light-white"}`}>
+        <p
+          className={`xl:text-4xl lg:!text-3xl max-lg:hidden md:text-2xl text-xl font-semibold leading-130 text-dark-black max-sm:tracking-[-1px] ${
+            dark && "text-light-white"
+          }`}
+        >
           {title}
         </p>
         <Link className="lg:hidden" href={"/"}>
@@ -60,23 +61,24 @@ const DashboardHeader = ({ close, darkTheme, setDarkTheme }: any) => {
         </Link>
         <div className="flex items-center lg:gap-[35px] gap-3 sm:gap-6">
           <button
-            onClick={() => setDarkTheme(!darkTheme)}
+            onClick={() => setDark(!dark)}
             className={`p-3 border border-solid cursor-pointer rounded-full font-semibold text-xl leading-160 ${
-              darkThemeHeader
-                ? "text-white border-white bg-dark-blue"
-                : "border-dark-blue"
+              dark ? "text-white border-white bg-dark-blue" : "border-dark-blue"
             }`}
           >
-            <Icons icon="themeIcon" iconClass={darkThemeHeader ? "fill-white" : undefined} />
+            <Icons
+              icon="themeIcon"
+              iconClass={dark ? "fill-white" : undefined}
+            />
           </button>
           <button
             onClick={() => {
               router.push("/dashboard?tab=notification");
               close();
             }}
-            className={`bg-light cursor-pointer flex items-center justify-center lg:size-[58px] sm:size-12 size-10 rounded-full ${darkThemeHeader && "!bg-blue"} ${
-              tab === "notification" && "!bg-dark-blue"
-            }`}
+            className={`bg-light cursor-pointer flex items-center justify-center lg:size-[58px] sm:size-12 size-10 rounded-full ${
+              dark && "!bg-blue"
+            } ${tab === "notification" && "!bg-dark-blue"}`}
           >
             <Icons
               iconClass={`fill-dark-blue ${
@@ -99,10 +101,18 @@ const DashboardHeader = ({ close, darkTheme, setDarkTheme }: any) => {
                 showProfile ? "block" : "max-sm:hidden"
               }`}
             >
-              <p className={`lg:text-lg font-semibold leading-160 whitespace-nowrap max-sm:text-white ${darkThemeHeader && "text-light-white"}`}>
+              <p
+                className={`lg:text-lg font-semibold leading-160 whitespace-nowrap max-sm:text-white ${
+                  dark && "text-light-white"
+                }`}
+              >
                 Rajpal Singh
               </p>
-              <p className={`text-sm leading-160 text-dark-blue max-sm:text-white ${darkThemeHeader && "text-light-white"}`}>
+              <p
+                className={`text-sm leading-160 text-dark-blue max-sm:text-white ${
+                  dark && "text-light-white"
+                }`}
+              >
                 Parent
               </p>
             </div>

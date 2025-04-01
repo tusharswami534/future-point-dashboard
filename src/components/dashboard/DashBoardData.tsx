@@ -1,21 +1,22 @@
 import { STUDENTS_LIST } from "@/utils/hepler";
 import Icons from "@/utils/icons";
 import Image from "next/image";
+import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 const DashBoardData = () => {
-  const [darkTheme, setDarkTheme] = React.useState(false);
+  const [darkTheme, setDarkTheme] = React.useState();
   const router = useRouter();
   const params = useParams();
   const { student } = params;
-  
+
   useEffect(() => {
     if (student) {
       router.push("/dashboard");
     }
   }, [student, router]);
-  
+
   useEffect(() => {
     const savedDarkMode = localStorage.getItem("darkMode");
     if (savedDarkMode) {
@@ -68,14 +69,10 @@ const DashBoardData = () => {
       </h4>
       <div className="w-full grid max-sm:grid-cols-1 max-[1884px]:grid-cols-2 grid-cols-3 gap-[23px]">
         {STUDENTS_LIST.map((item, index) => (
-          <div
-            onClick={() =>
-              router.push(
-                `/dashboard/${item.name
-                  .toLocaleLowerCase()
-                  .replaceAll(" ", "-")}?tab=academic-performance`
-              )
-            }
+          <Link
+            href={`/dashboard/${item.name
+              .toLocaleLowerCase()
+              .replaceAll(" ", "-")}?tab=academic-performance`}
             className="max-[1440px]:flex-col cursor-pointer box-border p-3 md:p-5 min-[1440px]:items-center md:rounded-2xl rounded-lg hover:shadow-student transition-all duration-300 w-full border border-solid border-light-gray-blue flex gap-[30px]"
             key={index}
           >
@@ -152,7 +149,7 @@ const DashBoardData = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

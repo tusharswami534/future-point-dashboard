@@ -9,23 +9,18 @@ import AcademicPerformance from "./AcademicPerformance";
 import FeeStatus from "./FeeStatus";
 
 const Dashboard = () => {
-  const [dark, setDark] = useState(false);
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [darkTheme, setDarkTheme] = useState<boolean | undefined>();
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab");
 
   useEffect(() => {
     const savedDarkMode = localStorage.getItem("darkMode");
-    if (savedDarkMode) {
-      setDark(JSON.parse(savedDarkMode));
+    if (savedDarkMode !== null) {
+      setDarkTheme(JSON.parse(savedDarkMode));
     }
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem("darkMode", JSON.stringify(dark));
-    window.dispatchEvent(new Event("darkModeChange"));
-  }, [dark]);
 
   useEffect(() => {
     if (!tab) {
@@ -33,8 +28,22 @@ const Dashboard = () => {
     }
   }, [tab, router]);
 
+  useEffect(() => {
+    const handleDarkModeChange = () => {
+      const updatedDarkMode = localStorage.getItem("darkMode");
+      if (updatedDarkMode !== null) {
+        setDarkTheme(JSON.parse(updatedDarkMode));
+      }
+    };
+
+    window.addEventListener("darkModeChange", handleDarkModeChange);
+    return () => {
+      window.removeEventListener("darkModeChange", handleDarkModeChange);
+    };
+  }, []);
+
   return (
-    <div className="flex w-full relative pl-[325px] h-screen overflow-hidden max-xl:pl-[300px] max-lg:pl-0">
+    <div className={`flex w-full relative pl-[325px] h-screen overflow-hidden max-xl:pl-[300px] max-lg:pl-0 ${darkTheme ? 'bg-dark-black' : 'bg-light-white'}`}>
       <SideBar open={open} close={() => setOpen(false)} />
       {open && (
         <div
@@ -49,26 +58,16 @@ const Dashboard = () => {
             onClick={() => setOpen(!open)}
           >
             <span
-              className={`flex w-full h-0.5 rounded-3xl bg-black transition-all duration-300 ${
-                open && "translate-x-10"
-              }`}
+              className={`flex w-full h-0.5 rounded-3xl bg-black transition-all duration-300 ${open && "translate-x-10"}`}
             ></span>
             <span
-              className={`flex w-full h-0.5 relative rounded-3xl bg-black transition-all duration-300 after:flex after:w-full after:h-0.5  after:rounded-3xl after:bg-black after:transition-all after:duration-300 top-0 left-0 ${
-                open && "rotate-45 after:rotate-90"
-              }`}
+              className={`flex w-full h-0.5 relative rounded-3xl bg-black transition-all duration-300 after:flex after:w-full after:h-0.5 after:rounded-3xl after:bg-black after:transition-all after:duration-300 top-0 left-0 ${open && "rotate-45 after:rotate-90"}`}
             ></span>
             <span
-              className={`flex w-full h-0.5 rounded-3xl bg-black transition-all duration-300 ${
-                open && "-translate-x-10"
-              }`}
+              className={`flex w-full h-0.5 rounded-3xl bg-black transition-all duration-300 ${open && "-translate-x-10"}`}
             ></span>
           </button>
-          <DashboardHeader
-            darkTheme={dark}
-            setDarkTheme={setDark}
-            close={() => setOpen(false)}
-          />
+          <DashboardHeader close={() => setOpen(false)} />
         </div>
         <div className="overflow-y-auto h-full pb-28">
           {tab === "dashboard" && <DashBoardData />}

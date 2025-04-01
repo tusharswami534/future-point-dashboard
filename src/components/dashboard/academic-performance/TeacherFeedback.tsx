@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const TeacherFeedBack = () => {
-  const [dark, setDarkTheme] = useState(false);
+  const [dark, setDarkTheme] = useState();
   useEffect(() => {
     const savedDarkMode = localStorage.getItem("darkMode");
     if (savedDarkMode) {

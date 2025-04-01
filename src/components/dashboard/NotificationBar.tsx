@@ -8,7 +8,7 @@ const NotificationBar = () => {
   const router = useRouter();
 
   const [notifications, setNotifications] = useState(NOTIFICATIONS_LIST);
-  const [darkTheme, setDarkTheme] = useState(false);
+  const [darkTheme, setDarkTheme] = useState();
 
   useEffect(() => {
     const savedDarkMode = localStorage.getItem("darkMode");

@@ -32,7 +32,7 @@ const StudentReport = () => {
     }
   };
 
-  const [dark, setDarkTheme] = React.useState(false);
+  const [dark, setDarkTheme] = React.useState();
     useEffect(() => {
       const savedDarkMode = localStorage.getItem("darkMode");
       if (savedDarkMode) {
