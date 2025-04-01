@@ -4,11 +4,12 @@ import Icons from "@/utils/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
-
+import React, { useEffect, useLayoutEffect, useState } from "react";
 const DashboardHeader = ({ close }: any) => {
-  const [dark, setDark] = useState(false);
   const router = useRouter();
+  const [dark, setDark] = useState<boolean>(() => {
+    return JSON.parse(localStorage.getItem("darkMode") || "false");
+  });
   const [showProfile, setShowProfile] = useState(false);
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab");
@@ -16,26 +17,17 @@ const DashboardHeader = ({ close }: any) => {
     DASHBOARD_BUTTON_LIST.find(
       (item) => item.title.toLowerCase().replaceAll(" ", "-") === tab
     )?.title || "Notification";
-
-  useEffect(() => {
-    if (dark) {
-      document.body.classList.add("!bg-dark-black");
-    } else {
-      document.body.classList.remove("!bg-dark-black");
-    }
-  });
-  useEffect(() => {
-    const savedDarkMode = localStorage.getItem("darkMode");
-    if (savedDarkMode) {
-      setDark(JSON.parse(savedDarkMode));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("darkMode", JSON.stringify(dark));
-    window.dispatchEvent(new Event("darkModeChange"));
-  }, [dark]);
-
+    useLayoutEffect(() => {
+      if (dark) {
+        document.body.classList.add("!bg-dark-black");
+      } else {
+        document.body.classList.remove("!bg-dark-black");
+      }
+    }, []);
+    useEffect(() => {
+      localStorage.setItem("darkMode", JSON.stringify(dark));
+      window.dispatchEvent(new Event("darkModeChange"));
+    }, [dark]);
   return (
     <div
       className={`bg-light-white text-black z-30 w-full ${
@@ -52,7 +44,7 @@ const DashboardHeader = ({ close }: any) => {
         </p>
         <Link className="lg:hidden" href={"/"}>
           <Image
-            src={ dark ? "/assets/images/dark-theme-logo.webp" : "/assets/images/logo.webp"}
+            src={"/assets/images/logo.webp"}
             width={215}
             height={54.84}
             alt="logo"
@@ -122,5 +114,4 @@ const DashboardHeader = ({ close }: any) => {
     </div>
   );
 };
-
 export default DashboardHeader;
