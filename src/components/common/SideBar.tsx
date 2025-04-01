@@ -53,11 +53,8 @@ const SideBar = ({ open, close }: any) => {
       </div>
       <div className="flex gap-1 px-6 flex-col">
         {DASHBOARD_BUTTON_LIST.map((item, index) => (
-          <button
+          <Link href={`/dashboard?tab=${item.title.toLowerCase().replaceAll(" ", "-")}`}
             onClick={() => {
-              router.push(
-                `?tab=${item.title.toLowerCase().replaceAll(" ", "-")}`
-              );
               close();
             }}
             className={`items-center flex gap-3 whitespace-nowrap box-border text-dark-gray border border-solid border-transparent hover:border-dark-gray py-3 cursor-pointer leading-160 px-4 rounded-[99px] max-w-[277px] w-full ${darkTheme ? "text-light-white hover:border-light-gray" : ""
@@ -78,7 +75,7 @@ const SideBar = ({ open, close }: any) => {
               />
             </span>
             {item.title}
-          </button>
+          </Link>
         ))}
       </div>
       <div

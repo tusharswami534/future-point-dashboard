@@ -11,6 +11,7 @@ const StudentData = ({
   totalNumber: string;
   percentage: string;
 }) => {
+  const [dark, setDarkTheme] = React.useState();
   const params = useParams();
   const { student } = params;
   const combinedList = [...STUDENTS_LIST];
@@ -24,7 +25,6 @@ const StudentData = ({
     }
     return false;
   });
-  const [dark, setDarkTheme] = React.useState();
   useEffect(() => {
     const savedDarkMode = localStorage.getItem("darkMode");
     if (savedDarkMode) {
@@ -56,7 +56,7 @@ const StudentData = ({
             key={index}
             className={`flex items-center justify-between transition-all duration-300 hover:shadow-button p-3 lg:p-[18px] border rounded-xl  ${
               dark
-                ? "border-light-white bg-dark-black/60"
+                ? "border-light-white bg-dark-black/60 hover:shadow-button-dark"
                 : "border-light-blue-two bg-light-white"
             }`}
           >
@@ -79,6 +79,7 @@ const StudentData = ({
                   dark ? "text-white" : "text-dark-black"
                 }`}
               >
+                {" "}
                 {item.title}{" "}
               </p>
             </div>
@@ -122,6 +123,7 @@ const StudentData = ({
                     dark && "text-white"
                   }`}
                 >
+                  {" "}
                   Class {studentList.class}
                 </p>
               </div>
@@ -203,6 +205,7 @@ const StudentData = ({
                         dark && "text-white/70"
                       }`}
                     >
+                      {" "}
                       Phone No:
                     </p>
                     <p
@@ -210,6 +213,7 @@ const StudentData = ({
                         dark && "text-white"
                       }`}
                     >
+                      {" "}
                       {studentList.number}{" "}
                     </p>
                   </div>
@@ -224,6 +228,7 @@ const StudentData = ({
                         dark && "text-white/70"
                       }`}
                     >
+                      {" "}
                       Email:
                     </p>
                     <p

@@ -17,17 +17,17 @@ const DashboardHeader = ({ close }: any) => {
     DASHBOARD_BUTTON_LIST.find(
       (item) => item.title.toLowerCase().replaceAll(" ", "-") === tab
     )?.title || "Notification";
-    useLayoutEffect(() => {
-      if (dark) {
-        document.body.classList.add("!bg-dark-black");
-      } else {
-        document.body.classList.remove("!bg-dark-black");
-      }
-    }, []);
-    useEffect(() => {
-      localStorage.setItem("darkMode", JSON.stringify(dark));
-      window.dispatchEvent(new Event("darkModeChange"));
-    }, [dark]);
+  useLayoutEffect(() => {
+    if (dark) {
+      document.body.classList.add("!bg-dark-black");
+    } else {
+      document.body.classList.remove("!bg-dark-black");
+    }
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("darkMode", JSON.stringify(dark));
+    window.dispatchEvent(new Event("darkModeChange"));
+  }, [dark]);
   return (
     <div
       className={`bg-light-white text-black z-30 w-full ${
@@ -44,7 +44,11 @@ const DashboardHeader = ({ close }: any) => {
         </p>
         <Link className="lg:hidden" href={"/"}>
           <Image
-            src={"/assets/images/logo.webp"}
+            src={
+              dark
+                ? "/assets/images/dark-theme-logo.webp"
+                : "/assets/images/logo.webp"
+            }
             width={215}
             height={54.84}
             alt="logo"

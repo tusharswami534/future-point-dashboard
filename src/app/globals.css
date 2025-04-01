@@ -48,4 +48,5 @@ body {
   --shadow-student: 0px 0px 30.4px 0px #034D9024;
   --shadow-header: 0px 8px 19.1px 0px #004B8F0D;
   --shadow-button: 0px 4px 0px 0px #004B8F;
+  --shadow-button-dark: 0px 4px 0px 0px #FAFAFA;
 }
